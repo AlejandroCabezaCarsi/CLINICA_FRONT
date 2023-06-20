@@ -1,0 +1,46 @@
+.headerDesign{
+
+    height: 15vh;
+    width: 100vw;
+
+    background-color: #102444;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-weight: bolder;
+    color: white;
+
+}
+
+.logo{
+    width: 2em;
+    height: 2em;
+    background-image: url(../../../img/_84846f52-42c0-4d4b-9b9f-5be71c9a1ccd.png);
+    background-size: cover;
+}
+
+.Botones{
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.marginLinks{
+    margin: 1em;
+    transition: 0.5s;
+    
+}
+
+.marginLinks:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}

@@ -1,25 +1,38 @@
-.headerDesign{
+*{
+    color: white ; 
+}
 
-    height: 15vh;
+.headerDesign{
+    margin: 0;
+    padding: 0;
+    color: white;
     width: 100vw;
 
     background-color: #102444;
 
+
+    font-weight: bolder;
+   
+
+}
+
+.flexDesign{
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    font-weight: bolder;
-    color: white;
-
 }
 
 .logo{
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
     background-image: url(../../assets/logoClinica.png);
     background-size: cover;
+    will-change: filter;
+    transition: filter 300ms;
 }
+
+
 
 .Botones{
     
@@ -44,3 +57,20 @@
     transform: scale(1.1);
     transition: 0.5s;
 }
+
+.hamburguer{
+    border: white solid 0.2em;
+}
+.alignRow{
+    display: flex;
+    flex-direction: row !important;
+}
+
+.alignEnd{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    
+}
+

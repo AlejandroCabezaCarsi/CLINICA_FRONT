@@ -1,76 +1,26 @@
 *{
-    color: white ; 
+    color: white !important;
 }
 
 .headerDesign{
-    margin: 0;
-    padding: 0;
-    color: white;
-    width: 100vw;
-
-    background-color: #102444;
-
-
-    font-weight: bolder;
-   margin-bottom: 2em;
-
-}
-
-.flexDesign{
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #102444; 
+    width: 100vw; 
 }
 
 .logo{
-    width: 3em;
-    height: 3em;
     background-image: url(../../assets/logoClinica.png);
-    background-size: cover;
-    will-change: filter;
-    transition: filter 300ms;
+    height: 3em;
+    width: 3em;
+    background-size: contain;
 }
 
-
-
-.Botones{
-    
+.flex{ 
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
 }
 
-.links{
-    display: flex;
-    flex-direction: row;
-    
-}
-
-.marginLinks{
-    margin: 1em;
-    transition: 0.5s;
-    
-}
-
-.marginLinks:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-.hamburguer{
-    border: white solid 0.2em;
-}
-.alignRow{
-    display: flex;
-    flex-direction: row !important;
-}
-
-.alignEnd{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: end;
-    
+.borde {
+    border: solid white 0.1em;
 }
 

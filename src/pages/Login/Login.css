@@ -1,0 +1,12 @@
+.loginDesign{
+    width: 100vw;
+    height: 100vh;
+    background-color: bisque;
+}
+*{
+    color: black !important;
+}
+
+.form{
+    border: solid black 0.2em;
+}

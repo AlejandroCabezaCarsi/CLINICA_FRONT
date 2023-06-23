@@ -1,9 +1,9 @@
 .normalInput {
 
-    border-radius: 0.5em;
-    border: 0.2em solid blue;
+    border-radius: 1em;
+    border: 0.2em solid grey;
     width: 15em;
-    height: 1.5em;
+    height: 2em;
 
     margin-top: 2em;
 }

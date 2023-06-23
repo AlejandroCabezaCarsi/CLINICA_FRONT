@@ -5,8 +5,19 @@
 }
 *{
     color: black !important;
-}
+} */
 
+.marginTop{
+    height: 5em;
+}
 .form{
     border: solid black 0.2em;
+    border-radius: 1em;
+    width: 20em;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+

@@ -31,6 +31,28 @@ export const Login = () => {
     console.log(e.target.name, "soy el check....");
 
  }
+
+ const logMe = () => {
+  logMe(credentials)
+    .then((resultado) => {
+      let decodificado = jwt_decode(resultado.data.token);
+
+      let datosBackend = {
+        token : resultado.data.token,
+        user: decodificado
+      }
+
+      //Guardo en redux.....
+      dispatch(login({ credentials: datosBackend}))
+
+      setTimeout(() => {
+        navigate("/");
+      }, 3500);
+
+      setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
+    })
+    .catch((error) => console.log(error));
+};
   
   return (
     <div className="loginDesign">
@@ -40,7 +62,7 @@ export const Login = () => {
         <pre>{JSON.stringify(credentials, null,2)}</pre>
 
         <Row>
-            <Col lg={12}>
+            <Col>
             E-mail
             </Col>
         </Row>
@@ -75,6 +97,13 @@ export const Login = () => {
                 onBlurFunction={inputCheck}
             />
             </Col>
+        </Row>
+        <Row>
+          <Col>
+          <div onClick={() => logMe()} className="botonLogin">
+            Login me!
+          </div>
+          </Col>
         </Row>
         
       </Container>

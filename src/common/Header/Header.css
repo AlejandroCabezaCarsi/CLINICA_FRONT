@@ -2,7 +2,7 @@
 
 .headerDesign{
     background-color: #102444; 
-    width: 100vw; 
+    overflow-x:hidden ;
 }
 
 .logo{

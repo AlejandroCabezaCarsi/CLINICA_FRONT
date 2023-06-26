@@ -5,7 +5,9 @@
 }
 *{
     color: black !important;
-} */
+} 
+
+
 
 .marginTop{
     height: 5em;
@@ -19,5 +21,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: darkseagreen;
+}
+
+.botonLogin{
+    background-color: red;
+    border-radius: 0.2em;
+    margin-top: 2em;
 }
 

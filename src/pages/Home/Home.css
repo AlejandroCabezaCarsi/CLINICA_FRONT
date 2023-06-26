@@ -19,13 +19,3 @@ overflow-x: hidden;
     margin:0;
     padding:0;
 }
-
-.logo{
-    padding: 0;
-    margin: 0;
-    width: 2em;
-    height: 1em;
-    background-image: url(../../assets/logoClinica.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-}

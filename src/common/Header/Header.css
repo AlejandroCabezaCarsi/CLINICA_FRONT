@@ -3,6 +3,11 @@
 .headerDesign{
     background-color: #102444; 
     overflow-x:hidden ;
+    
+}
+
+.headerDimensions{
+    width: 100vw;
 }
 
 .logo{
@@ -20,5 +25,31 @@
 
 .borde {
     border: solid white 0.1em;
+}
+.textColor{
+    color: white ;
+}
+
+.align {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.alignHeaderLinks{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 

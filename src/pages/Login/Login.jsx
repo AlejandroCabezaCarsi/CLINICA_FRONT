@@ -3,16 +3,29 @@ import { useState } from "react";
 import "./Login.css";
 import { Col, Row } from "react-bootstrap";
 import { InputText } from "../../common/InputText/InputText";
+import jwt_decode from "jwt-decode"
+import { checkError } from "../../services/useful";
+import { useNavigate } from "react-router-dom";
+import { loginMe } from "../../services/apiCalls";
 
 
 
 export const Login = () => {
+
+  const navigate = useNavigate()
   
   
   const [credentials, setCredentials] = useState({
     email: "",
     password: ""
   })
+
+  const [credentialsError, setCredentialsError] = useState({
+    emailError: "",
+    passwordError: "",
+  });
+
+  const [welcome, setWelcome] = useState("");
 
  const inputHandler = (e) => {
 
@@ -29,10 +42,35 @@ export const Login = () => {
 
  const inputCheck = (e) => {
 
+    let mensajeError = checkError(e.target.name, e.target.value);
+
+    setCredentialsError((prevState) => ({
+      ...prevState,
+      [e.target.name + "Error"]: mensajeError,
+    }));
+
     console.log(e.target.value, "soy el check....");
     console.log(e.target.name, "soy el check....");
 
  }  
+
+ const logMe = () => {
+  loginMe(credentials)
+    .then((resultado) => {
+      let decodificado = jwt_decode(resultado.data.token);
+      // console.log(resultado.data.token)
+      // console.log(decodificado);
+
+      setTimeout(() => {
+        navigate("/");
+      }, 3500);
+
+      setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
+    })
+    .catch((error) => console.log(error));
+}
+
+
   return (
     <div className="loginBackgroundDesign d-flex justify-content-center align-items-center">
       <div className="form loginDesign">

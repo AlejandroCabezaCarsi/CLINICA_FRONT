@@ -1,32 +1,35 @@
-.loginDesign{
-    width: 100vw;
-    height: 100vh;
-    background-color: bisque;
-}
 *{
     color: black !important;
 } 
 
-
-
-.marginTop{
-    height: 5em;
+.loginBackgroundDesign{
+    height: 91vh;
+    width: auto;
+    background-color: red;
 }
-.form{
+
+
+
+.loginDesign{
     border: solid black 0.2em;
     border-radius: 1em;
-    width: 20em;
-    height: 20em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: darkseagreen;
+    background-color: #C1E9FC;
+    width: 25%;
 }
 
 .botonLogin{
-    background-color: red;
-    border-radius: 0.2em;
+    margin-bottom: 1em;
+    width: 6em;
+    background-color: #102444 ;
+    border-radius: 1em;
     margin-top: 2em;
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 

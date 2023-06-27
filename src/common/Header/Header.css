@@ -6,10 +6,6 @@
     
 }
 
-.headerDimensions{
-    width: 100vw;
-}
-
 .logo{
     background-image: url(../../assets/logoClinica.png);
     height: 3em;
@@ -31,7 +27,7 @@
 }
 
 .align {
-    width: 80vw;
+    width: 78vw;
     display: flex;
     justify-content: space-around;
 }
@@ -39,6 +35,7 @@
 .alignHeaderLinks{
     display: flex;
     justify-content: space-between;
+    margin-left: 3em;
 }
 
 .leftLinks{

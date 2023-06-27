@@ -24,10 +24,11 @@ export const Header = () => {
         <MDBNavbarBrand className="text-light" onClick={()=> navigate("/")}>RisalDent</MDBNavbarBrand>
         <MDBNavbarToggler
           type='button'
-          aria-expanded='false'
+          aria-expanded='true'
           aria-label='Toggle navigation'
         
         >
+          <i className='fas fa-bars'></i>
         
         </MDBNavbarToggler>
         <MDBCollapse navbar>
@@ -62,7 +63,6 @@ export const Header = () => {
       </MDBContainer>
     </MDBNavbar>
   );
-}
-
 
   
+}

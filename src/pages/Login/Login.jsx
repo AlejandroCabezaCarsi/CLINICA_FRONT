@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import "./Login.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { InputText } from "../../common/InputText/InputText";
+
+
 
 export const Login = () => {
   
@@ -30,46 +32,18 @@ export const Login = () => {
     console.log(e.target.value, "soy el check....");
     console.log(e.target.name, "soy el check....");
 
- }
-
- const logMe = () => {
-  logMe(credentials)
-    .then((resultado) => {
-      let decodificado = jwt_decode(resultado.data.token);
-
-      let datosBackend = {
-        token : resultado.data.token,
-        user: decodificado
-      }
-
-      //Guardo en redux.....
-      dispatch(login({ credentials: datosBackend}))
-
-      setTimeout(() => {
-        navigate("/");
-      }, 3500);
-
-      setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
-    })
-    .catch((error) => console.log(error));
-};
-  
+ }  
   return (
-    <div className="loginDesign">
-    <div className="marginTop"></div>
-      <Container className="form mt-5">
-        
-        <pre>{JSON.stringify(credentials, null,2)}</pre>
-
+    <div className="loginBackgroundDesign d-flex justify-content-center align-items-center">
+      <div className="form loginDesign">
         <Row>
-            <Col>
+            <Col className="mt-3">
             E-mail
             </Col>
         </Row>
         <Row>
             <Col lg={12}>
             <InputText 
-                // type, design, placeholder, name, functionHandler, onBlurFunction
                 type={"email"}
                 design={"normalInput"}
                 placeholder={"  Email..."}
@@ -88,10 +62,9 @@ export const Login = () => {
 
             <Col lg={12}>
             <InputText 
-                // type, design, placeholder, name, functionHandler, onBlurFunction
                 type={"password"}
                 design={"normalInput"}
-                placeholder={"  Password..."}
+                placeholder={"  Contraseña..."}
                 name={"password"}
                 functionHandler={inputHandler}
                 onBlurFunction={inputCheck}
@@ -106,7 +79,9 @@ export const Login = () => {
           </Col>
         </Row>
         
-      </Container>
-    </div>
+      </div>
+      </div>
+
+    
   );
 };

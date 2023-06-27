@@ -55,11 +55,14 @@ export const Login = () => {
  }  
 
  const logMe = () => {
+
+  console.log(credentials)
+
   loginMe(credentials)
     .then((resultado) => {
       let decodificado = jwt_decode(resultado.data.token);
-      // console.log(resultado.data.token)
-      // console.log(decodificado);
+      console.log('HOLA SOY EL TOKEN '  + resultado.data.token)
+      console.log(decodificado);
 
       setTimeout(() => {
         navigate("/");

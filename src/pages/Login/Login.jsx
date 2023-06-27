@@ -7,6 +7,9 @@ import jwt_decode from "jwt-decode"
 import { checkError } from "../../services/useful";
 import { useNavigate } from "react-router-dom";
 import { loginMe } from "../../services/apiCalls";
+import { useDispatch } from "react-redux";
+import { login } from "./userSlice";
+
 
 
 
@@ -54,18 +57,43 @@ export const Login = () => {
 
  }  
 
+//PARA EL MODO ESCRITURA DE REDUX
+
+ const dispatch = useDispatch(); 
+
+
  const logMe = () => {
 
-  console.log(credentials)
+  console.log("credentials en crudo " + credentials)
 
   loginMe(credentials)
+
     .then((resultado) => {
+
       let decodificado = jwt_decode(resultado.data.token);
-      console.log('HOLA SOY EL TOKEN '  + resultado.data.token)
-      console.log(decodificado);
+
+      // console.log('HOLA SOY EL TOKEN '  + resultado.data.token)
+
+      // console.log(decodificado);
+
+      let datosBackend = {
+
+        token: resultado.data.token,
+        user: decodificado
+
+      }
+
+      console.log(datosBackend);
+      
+
+      dispatch(login({credentials: datosBackend}))
+
+      console.log(credentials)
 
       setTimeout(() => {
+
         navigate("/");
+
       }, 3500);
 
       setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
@@ -73,9 +101,12 @@ export const Login = () => {
     .catch((error) => console.log(error));
 }
 
-
   return (
     <div className="loginBackgroundDesign d-flex justify-content-center align-items-center">
+
+    {welcome !== "" ? (
+      <div> {welcome} </div>
+    ) :(
       <div className="form loginDesign">
         <Row>
             <Col className="mt-3">
@@ -121,7 +152,9 @@ export const Login = () => {
         </Row>
         
       </div>
+    )}
       </div>
+
 
     
   );

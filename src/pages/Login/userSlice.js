@@ -16,15 +16,20 @@ export const userSlice = createSlice({
 
         login: (state,action) => {
 
-            let {payload} = action; 
+            // let {payload} = action; 
 
-            state.credentials = {
-                token: payload.token
-            }
+            // state.credentials = {
+            //     token: payload.token
+            // }
 
-            state.dataUser = {
-                name: payload.user,
-                role: payload.role
+            // state.dataUser = {
+            //     name: payload.user,
+            //     role: payload.role
+            // }
+
+            return{
+                ...state,
+                ...action.payload
             }
         },
 

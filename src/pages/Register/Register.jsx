@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './Register.css'
 import { Col, Container, Row } from "react-bootstrap";
 import { InputText } from "../../common/InputText/InputText";
@@ -7,8 +7,40 @@ import {
   } from 'mdb-react-ui-kit';
 
 export const Register = () => {
+
+    const [credentials, setCredentials] = useState({
+        name: "",
+        lastname: "",
+        email: "",
+        dni:"",
+        phoneNumber: "",
+        password: ""
+      })
+
+    const inputHandler = (e) => {
+
+        //Ahora vamos a proceder a bindear o atar los inputs mediante
+        //la presente función handler a sus correspondientes estados en el hook, que 
+        //ahora se llama credentials.
+    
+        setCredentials((prevState)=>({
+            ...prevState,
+            [e.target.name] : e.target.value
+        }));
+    
+    }
+    
+    const inputCheck = (e) => {
+    
+        console.log(e.target.value, "soy el check...." + e.target.value);
+        console.log(e.target.name, "soy el check...." + e.target.name);
+    
+    }
+
     return(
         <div className="registerBackgroundDesign d-flex flex-column ">
+
+    <pre>{JSON.stringify(credentials, null,2)}</pre>
 
         <Container className="d-flex justify-content-center p-5">
 
@@ -21,7 +53,9 @@ export const Register = () => {
                         type={"text"} 
                         className={"normalInput"}
                         placeholder={"Nombre..."}
-                        name={"nombre"}/>
+                        name={"name"}
+                        functionHandler={inputHandler}
+                        onBlurFunction={inputCheck}/>
                     </Col>
                     <Col sm={6} className="d-flex flex-column justify-content-center">
                         <div>Apellido</div>
@@ -29,7 +63,9 @@ export const Register = () => {
                         type={"text"} 
                         className={"normalInput"}
                         placeholder={"Apellido..."}
-                        name={"Apellido"}/>
+                        name={"lastname"}
+                        functionHandler={inputHandler}
+                        onBlurFunction={inputCheck}/>
                     </Col>
                 </Row>
                 <Row className="d-flex justify-content-around  m-2" >
@@ -39,7 +75,9 @@ export const Register = () => {
                         type={"email"} 
                         className={"normalInput"}
                         placeholder={"Email..."}
-                        name={"email"}/>
+                        name={"email"}
+                        functionHandler={inputHandler}
+                        onBlurFunction={inputCheck}/>
                     </Col>
                     <Col sm={6} className="d-flex flex-column justify-content-center">
                         <div>DNI</div>
@@ -47,7 +85,9 @@ export const Register = () => {
                             type={"text"} 
                             className={"normalInput"}
                             placeholder={"DNI..."}
-                            name={"Dni"}/>
+                            name={"dni"}
+                            functionHandler={inputHandler}
+                            onBlurFunction={inputCheck}/>
                     </Col>
                 </Row>
                 <Row className="d-flex justify-content-around  m-2" >
@@ -57,7 +97,9 @@ export const Register = () => {
                         type={"phone"} 
                         className={"normalInput"}
                         placeholder={"Numero..."}
-                        name={"NumeroDeTelefono"}/>
+                        name={"phoneNumber"}
+                        functionHandler={inputHandler}
+                        onBlurFunction={inputCheck}/>
                     </Col>
 
                 </Row>
@@ -69,7 +111,9 @@ export const Register = () => {
                         type={"password"} 
                         className={"normalInput"}
                         placeholder={"Password..."}
-                        name={"password"}/>
+                        name={"password"}
+                        functionHandler={inputHandler}
+                        onBlurFunction={inputCheck}/>
                     </Col>
                     <Col sm={6} className="d-flex flex-column justify-content-center">
                         <div>Repite la contraseña</div>
@@ -77,7 +121,9 @@ export const Register = () => {
                         type={"password"} 
                         className={"normalInput"}
                         placeholder={""}
-                        name={"name"}/>
+                        name={"name"}
+                        functionHandler={inputHandler}
+                        onBlurFunction={inputCheck}/>
                     </Col>
 
                     

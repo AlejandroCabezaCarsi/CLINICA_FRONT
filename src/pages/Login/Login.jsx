@@ -12,7 +12,7 @@ export const Login = () => {
   const [credentials, setCredentials] = useState({
     email: "",
     password: ""
-})
+  })
 
  const inputHandler = (e) => {
 

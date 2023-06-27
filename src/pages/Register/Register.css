@@ -1,0 +1,22 @@
+.registerBackgroundDesign{
+    background-color: yellowgreen;
+    width: auto;
+    min-height: 100vh;
+}
+
+.registerForm{
+
+    height: auto;
+    border: solid black 0.2em;
+}
+
+.sendButtonRegister{
+    background-color: blue;
+    color: white ;
+    width: 6em;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+}

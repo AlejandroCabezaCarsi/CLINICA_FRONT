@@ -50,3 +50,54 @@
     align-items: center;
 }
 
+.botonLogout{
+    width: 6em;
+    height: 2em;
+
+    background-color: #6ACDE5;
+    border-radius: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-right: 1em;
+    margin-left: 1em;
+    
+    transition: 0.5s;
+}
+
+.botonLogout:hover{
+    transition: 0.5s;
+    color: #102444;
+    transform: scale(1.1);
+    box-shadow: #6ACDE5 0 0 0.5em 0.1em ;
+    cursor: pointer;
+}
+
+.userProfileButton{
+    width: 6em;
+    height: 2em;
+    background-color: white;
+    border: solid black 0.1em;
+    border-radius: 0.2em;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.userProfileButton:hover{
+    scale: 1.1;
+    transition: 0.5s;
+    
+}
+
+.fotoUser{ 
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-image: url(../../assets/userDummy.jpg);
+    background-size: contain;
+}
+
+

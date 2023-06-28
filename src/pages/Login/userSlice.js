@@ -44,6 +44,7 @@ export const userSlice = createSlice({
                 dataUser:{
                     name: "",
                     role: "",
+                    id: ""
                 }
             }
         }

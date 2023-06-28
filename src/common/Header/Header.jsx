@@ -14,9 +14,18 @@ import {
   MDBCollapse,
 } from 'mdb-react-ui-kit';
 import { useNavigate } from "react-router-dom";
+import { logout, userData } from "../../pages/Login/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 export const Header = () => {
 
   const navigate = useNavigate()
+
+  const dataUser = useSelector(userData)
+
+
+  const dispatch = useDispatch(); 
+
+
 
   return (
     <MDBNavbar className='headerDesign' expand='lg'>
@@ -47,16 +56,31 @@ export const Header = () => {
               </MDBNavbarItem>
             </div>
             <div className="rightLinks">
-            
-            <Changeview
-              name={"Login"}
-              path={"/Login"}
-            />
-            <Changeview
-            name={"Register"}
-            path={"/Register"}
-            />
-            
+              {dataUser.dataUser.name != "" 
+                ?<div className="d-flex flex-row align-items-center justify-contents-between">
+
+                  <div className="p-2 text-dark userProfileButton d-flex justify-content-around align-items-center">
+                    <div className="fotoUser"></div>{dataUser.dataUser.name}</div> 
+
+                    <div className="botonLogout" onClick={()=>{dispatch(logout())}}> 
+                    
+                    Logout
+                    
+                    </div>
+                
+                  </div>
+                :
+                <>
+                  <Changeview
+                  name={"Login"}
+                  path={"/Login"}
+                  />
+                  <Changeview
+                  name={"Register"}
+                  path={"/Register"}
+                  />
+                </>
+              }
             </div>
           </MDBNavbarNav>
         </MDBCollapse>

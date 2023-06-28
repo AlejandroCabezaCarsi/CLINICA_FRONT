@@ -9,3 +9,12 @@ export const loginMe = async (credentials) => {
 
 
 }
+
+export const registerMe = async (data) => { 
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.post(`${raiz}/user/register`, data)
+
+
+}

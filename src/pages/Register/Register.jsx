@@ -5,36 +5,51 @@ import { InputText } from "../../common/InputText/InputText";
 import {
     MDBInputGroup,
   } from 'mdb-react-ui-kit';
+import { useNavigate } from "react-router-dom";
+import { registerMe } from "../../services/apiCalls";
+import { checkError } from "../../services/useful";
 
 export const Register = () => {
 
+    const navigate = useNavigate()
+
     const [credentials, setCredentials] = useState({
+
         name: "",
         lastname: "",
         email: "",
-        dni:"",
-        phoneNumber: "",
-        password: ""
+        password: "",
+        phoneNumber:"",
+        dni: ""
       })
 
+    const [credentialsError, setCredentialsError] = useState({
+            emailError: "",
+            passwordError: "",
+        });
+    
     const inputHandler = (e) => {
 
-        //Ahora vamos a proceder a bindear o atar los inputs mediante
-        //la presente función handler a sus correspondientes estados en el hook, que 
-        //ahora se llama credentials.
-    
         setCredentials((prevState)=>({
             ...prevState,
             [e.target.name] : e.target.value
         }));
-    
     }
-    
+
     const inputCheck = (e) => {
+
+        let mensajeError = checkError(e.target.name, e.target.value);
     
-        console.log(e.target.value, "soy el check...." + e.target.value);
-        console.log(e.target.name, "soy el check...." + e.target.name);
-    
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: mensajeError,
+        }));
+    }
+
+    const submitHandler = () => {
+        console.log(credentials)
+        registerMe(credentials)
+
     }
 
     return(
@@ -132,7 +147,7 @@ export const Register = () => {
                 <Row>
 
                     <Col sm={12} className="d-flex justify-content-center m-2">
-                        <div className="sendButtonRegister text-white">BOTON</div>
+                        <div className="sendButtonRegister text-white" onClick={submitHandler}>BOTON</div>
                     </Col>
                 </Row>
             </div>

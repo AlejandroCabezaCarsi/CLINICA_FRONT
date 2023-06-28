@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Login.css";
 import { Col, Row } from "react-bootstrap";
 import { InputText } from "../../common/InputText/InputText";
@@ -61,6 +61,24 @@ export const Login = () => {
 
  const dispatch = useDispatch(); 
 
+//  const [backendMessageError, setBackendMessageError] = useState({})
+
+//     useEffect(()=>{
+
+//       if(backendMessageError === ""){
+
+
+//           loginMe()
+//               .then(
+//                   resultados => {
+//                     setBackendMessageError(resultados.data.message)
+//                   }
+//               )
+//               .catch(error => console.log(error));
+//       }
+
+//   },[backendMessageError]);
+
 
  const logMe = () => {
 
@@ -83,10 +101,14 @@ export const Login = () => {
 
       }
 
-      console.log(datosBackend);
+      console.log(decodificado);
       
 
-      dispatch(login({credentials: datosBackend}))
+      dispatch(login({token: resultado.data.token,
+      name: decodificado.name,
+      role: decodificado.roleId,
+      id: decodificado.userId
+    }))
 
       console.log(credentials)
 
@@ -98,8 +120,11 @@ export const Login = () => {
 
       setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log("SOY LOGME" + error.response.data.message));  
 }
+
+
+
 
   return (
     <div className="loginBackgroundDesign d-flex justify-content-center align-items-center">
@@ -117,12 +142,17 @@ export const Login = () => {
             <Col lg={12}>
             <InputText 
                 type={"email"}
-                design={"normalInput"}
+                design={
+                  credentialsError.emailError === ""
+                    ? "normalInput"
+                    : "normalInput errorInput"
+                }
                 placeholder={"  Email..."}
                 name={"email"}
                 functionHandler={inputHandler}
                 onBlurFunction={inputCheck}
             />
+            <div className="errorText">{credentialsError.emailError}</div>
             </Col>
         </Row>
         <Row>
@@ -135,12 +165,17 @@ export const Login = () => {
             <Col lg={12}>
             <InputText 
                 type={"password"}
-                design={"normalInput"}
+                design={
+                  credentialsError.passwordError === ""
+                    ? "normalInput"
+                    : "normalInput errorInput"
+                }
                 placeholder={"  Contraseña..."}
                 name={"password"}
                 functionHandler={inputHandler}
                 onBlurFunction={inputCheck}
             />
+            <div className="errorText">{credentialsError.passwordError}</div>
             </Col>
         </Row>
         <Row>

@@ -1,11 +1,5 @@
 import axios from "axios";
 
-export const bringProducts = async () => {
-
-    return await axios.get(`https://rickandmortyapi.com/api/character/?page=17`);
-};
-
-
 export const loginMe = async (credentials) => {
 
     const raiz = "http://localhost:3000"

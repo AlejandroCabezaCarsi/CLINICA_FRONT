@@ -8,7 +8,7 @@ export const checkError = (name, value) => {
         case "correo":
 
             if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)){
-                return "El e-mail es incorrecto";
+                return "El formato de e-mail es incorrecto";
             }
 
                 return "";
@@ -16,10 +16,10 @@ export const checkError = (name, value) => {
         case "password":
         case "contraseña":
 
-            if(value.length < 8){
-                return "El password debe de tener 8 caracteres minimo";
+            // if(value.length < 8){
+            //     return "El password debe de tener 8 caracteres minimo";
 
-            }
+            // }
                 return "";
 
 

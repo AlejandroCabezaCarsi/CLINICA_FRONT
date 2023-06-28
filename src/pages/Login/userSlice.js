@@ -9,6 +9,7 @@ export const userSlice = createSlice({
         dataUser:{
             name: "",
             role: "",
+            id: ""
         },
 
     },   
@@ -16,21 +17,22 @@ export const userSlice = createSlice({
 
         login: (state,action) => {
 
-            // let {payload} = action; 
+            let {payload} = action; 
 
-            // state.credentials = {
-            //     token: payload.token
-            // }
-
-            // state.dataUser = {
-            //     name: payload.user,
-            //     role: payload.role
-            // }
-
-            return{
-                ...state,
-                ...action.payload
+            state.credentials = {
+                token: payload.token
             }
+
+            state.dataUser = {
+                name: payload.name,
+                role: payload.role,
+                id: payload.id
+            }
+
+            // return{
+            //     ...state,
+            //     ...action.payload
+            // }
         },
 
         logout: (state) => {

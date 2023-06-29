@@ -1,0 +1,56 @@
+.appointmentCardDesign{
+
+    width: 30em ;
+    height: 5em;
+    background-color: black;
+
+}
+
+.fecha{
+    width: 6em;
+    height: 5em;
+    background-color: red;
+}
+
+.fechaTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+.medico{
+    width: 6em;
+    height: 5em;
+    background-color: blue;
+}
+.medicoTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+.clinica{
+    width: 6em;
+    height: 5em;
+    background-color: yellow;
+}
+.clinicaTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+.precio{
+    width: 6em;
+    height: 5em;
+    background-color: green;
+}
+.precioTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+
+.botonesOpcionCita{
+    width: 6em;
+    height: 5em;
+    background-color: orange;
+}
+

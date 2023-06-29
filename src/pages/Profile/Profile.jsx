@@ -5,6 +5,7 @@ import { UserProfileCard } from "../../common/UserProfileCard/USerProfileCard";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../Login/userSlice";
+import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
 
 
 export const Profile = () => {
@@ -20,9 +21,10 @@ export const Profile = () => {
     // }
 
     return(
-        <div className="profileDesign d-flex justify-content-center align-items-center">
+        <div className="profileDesign d-flex justify-content-around align-items-center">
 
             <UserProfileCard/>
+            <AppointmentCard/>
         
         </div>
     )

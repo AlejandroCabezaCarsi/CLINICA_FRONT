@@ -1,0 +1,46 @@
+.userProfileCardDesign{
+    height: 15em;
+    width: 10em;
+    background-color: white;
+    border: solid black 0.2em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userPhoto{
+    height: 7em;
+    width: 7em;
+    background-color: black;
+    border-radius: 50%;
+    
+}
+
+.userData{
+    height: 5em;
+    width: 8em;
+    background-color: red;
+}
+
+.name{
+    height: 1.666em;
+    width: 8em;
+    background-color: aqua;
+    font-weight: bolder;
+}
+
+.lastname{
+    height: 1.666em;
+    width: 8em;
+    background-color: blue;
+}
+
+.email{
+    height: 1.666em;
+    width: 11em;
+    background-color: orangered;
+    font-size: small;
+    word-wrap: break-word;
+}

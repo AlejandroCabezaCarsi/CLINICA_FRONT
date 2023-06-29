@@ -18,3 +18,13 @@ export const registerMe = async (data) => {
 
 
 }
+
+export const findUser = async (data) => {
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.get(`${raiz}/user/getUser`,{
+        headers: {
+            Authorization: data
+        }})
+}

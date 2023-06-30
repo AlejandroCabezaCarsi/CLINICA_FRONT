@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../Login/userSlice";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-import { getAllAppointmentsByUserId, userDataByMedicID } from "../../services/apiCalls";
+import { getAllAppointmentsByUserId} from "../../services/apiCalls";
 import axios from "axios";
 
 export const Profile = () => {
@@ -21,8 +21,6 @@ export const Profile = () => {
     // const reduxToken = useSelector(credentials)
 
     const token = `Bearer ${dataUser.credentials.token}`
-
-    console.log(token)
 
     const navigate = useNavigate()
 
@@ -41,7 +39,7 @@ export const Profile = () => {
                 .then(
                     resultados => {
 
-                        console.log( resultados.data.data)
+                        console.log(resultados.data.data)
 
                         setUserDataBackend(resultados.data.data)
                     }
@@ -51,6 +49,7 @@ export const Profile = () => {
         }
 
     },[userDataBackend])
+
 
 
     return(
@@ -72,18 +71,29 @@ export const Profile = () => {
                         userDataBackend?.length > 0 
                         ? (
                             <div className="appointmentCardSpace">
+                                {console.log("------------------------")}
+                                {console.log(userDataBackend)}
+                                {console.log("------------------------")}
+
+                                    
+
                                 {
+
+                                    
                                     userDataBackend.map(
                                         
-                                        async (dataAppointment) => {
+                                        dataAppointment=> {
                                            
-                                            const nombre = await userDataByMedicID(token, dataAppointment.medicId)
                                             
+                                            
+                                            console.log(dataAppointment)
+
+
                                             return(
                                                 <div key={dataAppointment.id}>
                                                     <AppointmentCard
                                                         fecha={dataAppointment.date}
-                                                        medico={ nombre }
+                                                        medico={ dataAppointment.medic?.user.name}
                                                         clinica={dataAppointment.clinic?.address}
                                                         precio={dataAppointment.price}
                                                     />

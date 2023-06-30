@@ -41,14 +41,14 @@ export const getAllAppointmentsByUserId = async (data) => {
     })
 }
 
-export const userDataByMedicID = async (token,medicId) => {
+// export const userDataByMedicID = async (token,medicId) => {
 
-    const raiz = "http://localhost:3000"
+//     const raiz = "http://localhost:3000"
 
     
-    await axios.get(`${raiz}/medic/getMedicByUserId`,{
-        data: { id: medicId },
-        headers: { Authorization: `Bearer ${token}` },
-      })
-    return dataUserByMedicId
-}
+//     await axios.get(`${raiz}/medic/getMedicByUserId`,{
+//         data: { id: medicId },
+//         headers: { Authorization: `Bearer ${token}` },
+//     })
+//     return dataUserByMedicId
+// }

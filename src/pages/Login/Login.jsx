@@ -101,7 +101,7 @@ export const Login = () => {
 
       }
 
-      console.log(decodificado);
+
       
 
       dispatch(login({token: resultado.data.token,
@@ -110,7 +110,7 @@ export const Login = () => {
       id: decodificado.userId
     }))
 
-      console.log(credentials)
+
 
       setTimeout(() => {
 

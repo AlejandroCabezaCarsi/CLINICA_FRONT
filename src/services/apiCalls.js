@@ -28,3 +28,27 @@ export const findUser = async (data) => {
             Authorization: data
         }})
 }
+
+export const getAllAppointmentsByUserId = async (data) => {
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.get(`${raiz}/appointment/getAllAppointmentsByUserId`,
+    {
+        headers: {
+            Authorization: data
+        },
+    })
+}
+
+export const userDataByMedicID = async (token,medicId) => {
+
+    const raiz = "http://localhost:3000"
+
+    
+    await axios.get(`${raiz}/medic/getMedicByUserId`,{
+        data: { id: medicId },
+        headers: { Authorization: `Bearer ${token}` },
+      })
+    return dataUserByMedicId
+}

@@ -47,7 +47,7 @@ export const Register = () => {
     }
 
     const submitHandler = () => {
-        console.log(credentials)
+
         registerMe(credentials)
 
     }

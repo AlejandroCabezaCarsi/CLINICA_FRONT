@@ -9,9 +9,7 @@ export const UserProfileCard = () => {
     const dataUser = useSelector(userData)
     const [userDataBackend, setUserDataBackend] = useState(null)
 
-    console.log(userDataBackend)
-
-    console.log(`Bearer ${dataUser.credentials.token}`)
+    
 
     useEffect(() => {
 
@@ -22,8 +20,6 @@ export const UserProfileCard = () => {
             findUser(bearerToken)
                 .then(
                     resultados => {
-
-                        console.log( resultados)
 
                         setUserDataBackend(resultados.data.data)
                     }

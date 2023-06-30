@@ -76,7 +76,7 @@
 }
 
 .userProfileButton{
-    width: 6em;
+    width: auto;
     height: 2em;
     background-color: white;
     border: solid black 0.1em;

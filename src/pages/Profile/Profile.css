@@ -3,3 +3,22 @@
     width: auto;
     min-height: 90.4vh;
 }
+
+.appoitnmentCardSpaceDesign{
+    height: auto;
+    width: auto;
+}
+
+.viewAppoitnment{
+    height: 2em;
+    width: 7em;
+    background-color: red;
+    border-radius: 2em;
+}
+
+.createAppointment{
+    height: 2em;
+    width: 7em;
+    background-color: blue;
+    border-radius: 2em;
+}

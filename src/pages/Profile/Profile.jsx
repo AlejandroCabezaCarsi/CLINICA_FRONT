@@ -95,6 +95,7 @@ export const Profile = () => {
                                                         fecha={dataAppointment.date}
                                                         medico={ dataAppointment.medic?.user.name}
                                                         clinica={dataAppointment.clinic?.address}
+                                                        tratamiento={dataAppointment.treatment.name}
                                                         precio={dataAppointment.price}
                                                     />
                                                 </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import './AppointmentCard.css'
 
-export const AppointmentCard = ({fecha, medico, clinica, precio}) => {
+export const AppointmentCard = ({fecha, medico, clinica, precio, tratamiento}) => {
     return(
         <div className="appointmentCardDesign d-flex text-center">
 
@@ -22,6 +22,11 @@ export const AppointmentCard = ({fecha, medico, clinica, precio}) => {
                 <div className="clinicaContenido">{clinica}</div>
             </div>
 
+            <div className="tratamiento">
+                <div className="tratamientoTitulo">TRATAMIENTO</div>
+                <div className="tratamientoContenido">{tratamiento}</div>
+
+            </div>
             <div className="precio">
                 <div className="precioTitulo">PRECIO</div>
                 <div className="precioContenido">{precio}</div>

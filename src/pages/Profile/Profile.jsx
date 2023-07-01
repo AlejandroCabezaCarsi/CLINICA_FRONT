@@ -8,6 +8,7 @@ import { userData } from "../Login/userSlice";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
 import { getAllAppointmentsByUserId} from "../../services/apiCalls";
 import axios from "axios";
+import { Changeview } from "../../common/ChangeView/ChangeView";
 
 export const Profile = () => {
 
@@ -61,9 +62,14 @@ export const Profile = () => {
 
                 <div className="buttonRow d-flex align-items-center justify-content-center m-3">
 
-                    <div className="viewAppoitnment m-2"></div>
+                    <div className="viewAppoitnment m-2">Mis citas</div>
 
-                    <div className="createAppointment m-2"></div>
+                    <div className="createAppointment m-2">
+                        <Changeview
+                        name={"creaCita"}
+                        path={"/CreateAppointment"}
+                        />
+                    </div>
 
                 </div>
                 <div className="contentRow">
@@ -71,24 +77,11 @@ export const Profile = () => {
                         userDataBackend?.length > 0 
                         ? (
                             <div className="appointmentCardSpace">
-                                {console.log("------------------------")}
-                                {console.log(userDataBackend)}
-                                {console.log("------------------------")}
-
-                                    
-
                                 {
-
                                     
                                     userDataBackend.map(
                                         
                                         dataAppointment=> {
-                                           
-                                            
-                                            
-                                            console.log(dataAppointment)
-
-
                                             return(
                                                 <div key={dataAppointment.id}>
                                                     <AppointmentCard

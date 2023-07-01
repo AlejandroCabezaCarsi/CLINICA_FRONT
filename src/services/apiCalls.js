@@ -41,14 +41,53 @@ export const getAllAppointmentsByUserId = async (data) => {
     })
 }
 
-// export const userDataByMedicID = async (token,medicId) => {
+export const getAllMedics = async (data) => {
 
-//     const raiz = "http://localhost:3000"
+    const raiz = "http://localhost:3000"
 
-    
-//     await axios.get(`${raiz}/medic/getMedicByUserId`,{
-//         data: { id: medicId },
-//         headers: { Authorization: `Bearer ${token}` },
-//     })
-//     return dataUserByMedicId
-// }
+    return await axios.get(`${raiz}/medic/getAllMedics`,
+    {
+        headers: {
+            Authorization: data
+        },
+    })
+
+}
+export const getAllTreatments = async (data) => {
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.get(`${raiz}/treatment/findAll`,
+    {
+        headers: {
+            Authorization: data
+        },
+    })
+
+}
+export const getAllClinics = async (data) => {
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.get(`${raiz}/clinic/findAll`,
+    {
+        headers: {
+            Authorization: data
+        },
+    })
+
+}
+export const createAppointment = async (data,appointmentData) => {
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.post(`${raiz}/appointment/create`,
+        appointmentData,
+    {
+        headers: {
+            Authorization: data
+        },
+    })
+
+}
+

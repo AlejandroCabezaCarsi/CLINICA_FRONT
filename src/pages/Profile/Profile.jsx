@@ -62,14 +62,9 @@ export const Profile = () => {
 
                 <div className="buttonRow d-flex align-items-center justify-content-center m-3">
 
-                    <div className="viewAppoitnment m-2">Mis citas</div>
+                <input type="date"/> 
 
-                    <div className="createAppointment m-2">
-                        <Changeview
-                        name={"creaCita"}
-                        path={"/CreateAppointment"}
-                        />
-                    </div>
+                <input type="text"/> 
 
                 </div>
                 <div className="contentRow">
@@ -90,6 +85,7 @@ export const Profile = () => {
                                                         clinica={dataAppointment.clinic?.address}
                                                         tratamiento={dataAppointment.treatment.name}
                                                         precio={dataAppointment.price}
+                                                        id={dataAppointment.id}
                                                     />
                                                 </div>
                                             )

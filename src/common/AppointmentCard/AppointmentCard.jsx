@@ -1,8 +1,15 @@
 import React from "react";
 import './AppointmentCard.css'
+import { useNavigate } from "react-router-dom";
 
-export const AppointmentCard = ({fecha, medico, clinica, precio, tratamiento}) => {
+export const AppointmentCard = ({id,fecha, medico, clinica, precio, tratamiento}) => {
+    
+    const navigate = useNavigate()
+    
     return(
+
+        
+
         <div className="appointmentCardDesign d-flex text-center">
 
             <div className="fecha">
@@ -13,7 +20,7 @@ export const AppointmentCard = ({fecha, medico, clinica, precio, tratamiento}) =
 
             <div className="medico">
                 <div className="medicoTitulo">MEDICO</div>
-                <div className="medicoContenido">{medico}</div>
+                <div className="medicoContenido">Dr. {medico}</div>
 
             </div>
 
@@ -34,6 +41,10 @@ export const AppointmentCard = ({fecha, medico, clinica, precio, tratamiento}) =
             </div>
 
             <div className="botonesOpcionCita">
+
+                <div className="editaCita" onClick={()=>navigate(`/UpdateAppointment/${id}`)}>Editar</div>
+                <div className="cancelaCita" >Cancela</div>
+                <div className="verDetalleCita">Detalle</div>
 
             </div>
 

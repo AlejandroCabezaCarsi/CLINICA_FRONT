@@ -90,4 +90,17 @@ export const createAppointment = async (data,appointmentData) => {
     })
 
 }
+export const updateAppointment = async (data,appointmentUpdateData) => {
+
+    const raiz = "http://localhost:3000"
+
+    return await axios.put(`${raiz}/appointment/update`,
+        appointmentUpdateData,
+    {
+        headers: {
+            Authorization: data
+        },
+    })
+
+}
 

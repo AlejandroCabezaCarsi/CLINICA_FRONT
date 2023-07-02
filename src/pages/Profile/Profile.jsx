@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../Login/userSlice";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-import { getAllAppointmentsByMedicId, getAllAppointmentsByUserId, getAppointmentByDate} from "../../services/apiCalls";
+import { getAllAppointmentsByMedicId, getAllAppointmentsByUserId, getAppointmentByDate, getMedicByUserId} from "../../services/apiCalls";
 import axios from "axios";
 import { Changeview } from "../../common/ChangeView/ChangeView";
 import { ProfileNavbar } from "../../common/ProfileNavbar/ProfileNavbar";
@@ -14,17 +14,24 @@ import { AppointmentCardMedic } from "../../common/AppointmentCardMedic/Appointm
 
 export const Profile = () => {
 
+    let medicId = 0
+
+    
+    
 
 
-    const [userDataBackend, setUserDataBackend] = useState(null)
+
+    const [userDataBackend, setUserDataBackend] = useState("")
     const [criteria,setCriteria] = useState("")
+
     
 
     const dataUser = useSelector(userData)
 
-    // const reduxToken = useSelector(credentials)
-
     const token = `Bearer ${dataUser.credentials.token}`
+
+    console.log(token)
+    // const reduxToken = useSelector(credentials)
 
     // const bearerToken = `Bearer ${dataUser.credentials.token}`
 
@@ -34,89 +41,48 @@ export const Profile = () => {
         navigate("/")
     }
 
-    // useEffect(() => {
-
-    //     if (!userDataBackend){
-
-    //         const bearerToken = `Bearer ${dataUser.credentials.token}`
-
-    //         getAllAppointmentsByUserId(bearerToken)
-
-    //             .then(
-    //                 resultados => {
-
-    //                     console.log(resultados.data.data)
-
-    //                     setUserDataBackend(resultados.data.data)
-    //                 }
-    //             )
-
-    //             .catch(error => console.log(error))
-    //     }
-
-    // },[userDataBackend])
-
-
-    console.log(dataUser.dataUser.role);
-
+    const inputHandler = (e) => {
+        setCriteria(e.target.value);
+      };
 
 switch (dataUser.dataUser.role) {
-            case 4:
-
-            console.log("ESTOY DENTRO DEL CASE 4")
-                
-                useEffect(()=> {
-
+        case 4:
         
-
-        if(criteria !== ""){
-
-
-            console.log(criteria)
-
-
-            const bring = setTimeout(()=>{
-
-                getAppointmentByDate( token , criteria)
+            
+            useEffect(()=> {
+    
+            if(criteria !== ""){
+                const bring = setTimeout(()=>{
+                    
+                getAppointmentByDate(token, criteria)
 
             .then(
                 resultados => {
-
                     setUserDataBackend(resultados.data.data)
-
-                    console.log(resultados)
-
-                    console.log(userDataBackend)
                 }
             )
-
             .catch(error => console.log(error))
-            },350)  
+            },350) 
 
             return () => clearTimeout(bring);
-
-        }else if (criteria === ""){
-
-            getAllAppointmentsByUserId(token)
-
-            .then(
-                resultados => {
-
-                    setUserDataBackend(resultados.data.data)
+            }else if (criteria === ""){
+            
+                getAllAppointmentsByUserId(token, criteria)
+            
+                .then(
+                    resultados => {
+                    
+                        setUserDataBackend(resultados.data.data)
+                    }
+                )
+                
+                .catch(error => console.log(error))
+                
                 }
-            )
-
-            .catch(error => console.log(error))
-
-            }
-
-
-        },[criteria]);
-
-
-        
-
-                break;
+            
+            
+            },[criteria]);
+            break;
 
 
         case 3:
@@ -127,22 +93,17 @@ switch (dataUser.dataUser.role) {
 
             if(criteria !== ""){
     
-    
-                console.log(criteria)
-    
-    
                 const bring = setTimeout(()=>{
-    
-                    getAppointmentByDate( token , criteria)
+
+                getAppointmentByDate( dataUser.credentials.token, criteria)
     
                 .then(
                     resultados => {
-    
-                        setUserDataBackend(resultados.data.data)
-    
+
                         console.log(resultados)
     
-                        console.log(userDataBackend)
+                        setUserDataBackend(resultados.data.data)
+
                     }
                 )
     
@@ -152,13 +113,19 @@ switch (dataUser.dataUser.role) {
                 return () => clearTimeout(bring);
     
             }else if (criteria === ""){
-    
-                getAllAppointmentsByMedicId(token)
+
+                
+
+                getAllAppointmentsByMedicId(token, criteria)
     
                 .then(
                     resultados => {
-    
+
                         setUserDataBackend(resultados.data.data)
+
+                        console.log(resultados)
+
+                        
                     }
                 )
     
@@ -176,10 +143,6 @@ switch (dataUser.dataUser.role) {
                 break;
         }
    
-
-        const inputHandler = (e) => {
-            setCriteria(e.target.value);
-          };
 
     return(
         <div className="profileDesign d-flex flex-column  align-items-center">
@@ -211,10 +174,10 @@ switch (dataUser.dataUser.role) {
                             ? (
                                 <div className="appointmentCardSpace">
                                     {
-
                                         userDataBackend.map(
-
+                                            
                                             dataAppointment=> {
+                                                
                                                 
                                                 if (dataUser.dataUser.role === 4) {
                                                     return(
@@ -250,7 +213,6 @@ switch (dataUser.dataUser.role) {
                                 </div>
                             ) :(<></>)
 
-                          
                         }
 
 

@@ -107,7 +107,18 @@ export const updateAppointment = async (data,appointmentUpdateData) => {
 export const getAppointmentByDate = async (data, appointmentDate) => {
   const raiz = "http://localhost:3000";
   console.log(appointmentDate);
-  return await axios.post(`${raiz}/appointment/getAppointmentsByDate`, { date: appointmentDate }, {
+  return await axios.post(`${raiz}/appointment/getAppointmentsByDate`, { date: appointmentDate}, {
+    headers: {
+      Authorization: data,
+    },
+  });
+};
+
+
+export const getMedicByUserId = async (data,userId) => {
+  const raiz = "http://localhost:3000";
+
+  return await axios.get(`${raiz}/medic/getAppointmentsByDate`, {userId: userId}, {
     headers: {
       Authorization: data,
     },
@@ -116,12 +127,14 @@ export const getAppointmentByDate = async (data, appointmentDate) => {
 
 
 
-export const getAllAppointmentsByMedicId = async (data) => {
+
+
+export const getAllAppointmentsByMedicId = async (data, dateAppointment) => {
   const raiz = "http://localhost:3000";
-  return await axios.get(`${raiz}/appointment/getAllAppointmentsByMedicId`, {
+  return await axios.post(`${raiz}/appointment/getAllappointmentsByMedicId`,{date: dateAppointment} ,{
     headers: {
-      Authorization: data,
-    },
+        Authorization: data,
+      },
   });
 };
 

@@ -18,8 +18,6 @@ export const ProfileNavbar = () => {
 
     const dataUser = useSelector(userData)
 
-    console.log(dataUser.dataUser.role)
-
     return(
         <Navbar expand="lg" className="bg-body-tertiary">
       <Container>

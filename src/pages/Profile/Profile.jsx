@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../Login/userSlice";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-import { getAllAppointmentsByUserId, getAppointmentByDate} from "../../services/apiCalls";
+import { getAllAppointmentsByMedicId, getAllAppointmentsByUserId, getAppointmentByDate} from "../../services/apiCalls";
 import axios from "axios";
 import { Changeview } from "../../common/ChangeView/ChangeView";
+import { ProfileNavbar } from "../../common/ProfileNavbar/ProfileNavbar";
+import { AppointmentCardMedic } from "../../common/AppointmentCardMedic/AppointmentCardMedic";
 
 export const Profile = () => {
 
@@ -55,7 +57,17 @@ export const Profile = () => {
     // },[userDataBackend])
 
 
-    useEffect(()=> {
+    console.log(dataUser.dataUser.role);
+
+
+switch (dataUser.dataUser.role) {
+            case 4:
+
+            console.log("ESTOY DENTRO DEL CASE 4")
+                
+                useEffect(()=> {
+
+        
 
         if(criteria !== ""){
 
@@ -102,55 +114,150 @@ export const Profile = () => {
         },[criteria]);
 
 
+        
+
+                break;
+
+
+        case 3:
+
+        useEffect(()=> {
+
+        
+
+            if(criteria !== ""){
+    
+    
+                console.log(criteria)
+    
+    
+                const bring = setTimeout(()=>{
+    
+                    getAppointmentByDate( token , criteria)
+    
+                .then(
+                    resultados => {
+    
+                        setUserDataBackend(resultados.data.data)
+    
+                        console.log(resultados)
+    
+                        console.log(userDataBackend)
+                    }
+                )
+    
+                .catch(error => console.log(error))
+                },350)  
+    
+                return () => clearTimeout(bring);
+    
+            }else if (criteria === ""){
+    
+                getAllAppointmentsByMedicId(token)
+    
+                .then(
+                    resultados => {
+    
+                        setUserDataBackend(resultados.data.data)
+                    }
+                )
+    
+                .catch(error => console.log(error))
+    
+                }
+    
+    
+            },[criteria]);
+
+        break;
+        
+            default:
+
+                break;
+        }
+   
+
         const inputHandler = (e) => {
             setCriteria(e.target.value);
           };
 
-
     return(
-        <div className="profileDesign d-flex justify-content-around align-items-center">
+        <div className="profileDesign d-flex flex-column  align-items-center">
 
-            <UserProfileCard/>
+            <div className="NavbarRow">
 
-            <div className="appoitnmentCardSpaceDesign d-flex flex-column">
+            <ProfileNavbar/>
 
-                <div className="buttonRow d-flex align-items-center justify-content-center m-3">
+            </div>
 
-                <input type="date" value={criteria} onChange={inputHandler}/> 
 
-                <input type="text"/> 
+            
+            <div className="profileBody">
 
-                </div>
-                <div className="contentRow">
-                    {
-                        userDataBackend?.length > 0 
-                        ? (
-                            <div className="appointmentCardSpace">
-                                {
-                                    
-                                    userDataBackend.map(
-                                        
-                                        dataAppointment=> {
-                                            return(
-                                                <div key={dataAppointment.id}>
-                                                    <AppointmentCard
-                                                        fecha={dataAppointment.date}
-                                                        medico={ dataAppointment.medic?.user.name}
-                                                        clinica={dataAppointment.clinic?.address}
-                                                        tratamiento={dataAppointment.treatment?.name}
-                                                        precio={dataAppointment.price}
-                                                        id={dataAppointment.id}
-                                                    />
-                                                </div>
-                                            )
-                                        }
-                                    )
-                                }
-                            </div>
-                        ) :(<></>)
-                    }
+                <div className="appoitnmentCardSpaceDesign d-flex flex-column">
+
+                    <div className="buttonRow d-flex align-items-center justify-content-center m-3">
+
+                    <input type="date" value={criteria} onChange={inputHandler}/> 
+
+                    <input type="text"/> 
+
+                    </div>
+                    <div className="contentRow">
+                        {   
+                            
+                            
+                            userDataBackend?.length > 0 
+                            ? (
+                                <div className="appointmentCardSpace">
+                                    {
+
+                                        userDataBackend.map(
+
+                                            dataAppointment=> {
+                                                
+                                                if (dataUser.dataUser.role === 4) {
+                                                    return(
+                                                    <div key={dataAppointment.id}>
+                                                        <AppointmentCard
+                                                            fecha={dataAppointment.date}
+                                                            medico={ dataAppointment.medic?.user.name}
+                                                            clinica={dataAppointment.clinic?.address}
+                                                            tratamiento={dataAppointment.treatment?.name}
+                                                            precio={dataAppointment.price}
+                                                            id={dataAppointment.id}
+                                                        />
+                                                    </div>
+                                                )
+                                                }else{
+
+                                                    return(
+                                                        <div key={dataAppointment.id}>
+                                                            <AppointmentCardMedic
+                                                                fecha={dataAppointment.date}
+                                                                clinica={dataAppointment.clinic?.address}
+                                                                tratamiento={dataAppointment.treatment?.name}
+                                                                user={dataAppointment.user?.name}
+                                                                id={dataAppointment.id}
+                                                            />
+                                                        </div>
+                                                    )
+                                                }
+                                                
+                                            }
+                                        )
+                                    }
+                                </div>
+                            ) :(<></>)
+
+                          
+                        }
+
+
+                    </div>
                 </div>
             </div>
+
         </div>
     )
 }

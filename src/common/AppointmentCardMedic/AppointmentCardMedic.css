@@ -1,0 +1,96 @@
+.appointmentCardMedicDesign{
+
+    width: auto ;
+    height: auto;
+    background-color: black;
+
+}
+
+.fecha{
+    width: 6em;
+    height: 5em;
+    background-color: red;
+}
+
+.fechaTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+.medico{
+    width: 6em;
+    height: 5em;
+    background-color: blue;
+}
+.medicoTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+.clinica{
+    width: 6em;
+    height: 5em;
+    background-color: yellow;
+}
+.clinicaTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+
+
+.precio{
+    width: 6em;
+    height: 5em;
+    background-color: green;
+}
+.precioTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+}
+
+.botonesOpcionCita{
+    width: 6em;
+    height: 5em;
+    background-color: orange;
+}
+
+.editaCita{
+    background-color: rgb(208, 255, 0);
+    width: 6em;
+    height: 1.666em;
+    cursor: pointer;
+}
+
+.cancelaCita{
+    background-color: red;
+    width: 6em;
+    height: 1.666em;
+    cursor: pointer;
+}
+
+.verDetalleCita{
+    background-color: rgb(0, 255, 34);
+    width: 6em;
+    height: 1.666em;
+    cursor: pointer;
+}
+.tratamiento{
+    width: 6em;
+    height: 5em;
+    background-color: green;
+}
+.tratamientoTitulo{
+    width: 6em;
+    height: 1.5em;
+    background-color: white;
+    
+}
+
+.tratamientoOpcionCita{
+    width: 6em;
+    height: 5em;
+    background-color: rgb(0, 255, 42);
+    word-wrap: break-word;
+}

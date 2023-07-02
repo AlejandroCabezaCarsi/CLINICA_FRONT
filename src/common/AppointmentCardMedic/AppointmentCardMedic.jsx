@@ -1,32 +1,19 @@
 import React from "react";
-import './AppointmentCard.css'
+import "./AppointmentCardMedic.css"
 import { useNavigate } from "react-router-dom";
-import { userData } from "../../pages/Login/userSlice";
-import { useSelector } from "react-redux";
 
-export const AppointmentCard = ({id,fecha, medico, clinica, precio, tratamiento}) => {
-    
+
+export const AppointmentCardMedic = ({id,fecha, user, clinica, precio, tratamiento}) => {
+
     const navigate = useNavigate()
 
-    const dataUser = useSelector(userData)
-
-    
-    return(
-
-        
-
-        <div className="appointmentCardDesign d-flex text-center">
+    return( 
+        <div className="appointmentCardMedicDesign d-flex text-center">
 
             <div className="fecha">
 
                 <div className="fechaTitulo">FECHA</div>
                 <div className="fechaContenido">{fecha}</div>
-            </div>
-
-            <div className="medico">
-                <div className="medicoTitulo">MEDICO</div>
-                <div className="medicoContenido">Dr. {medico}</div>
-
             </div>
 
             <div className="clinica">
@@ -39,11 +26,13 @@ export const AppointmentCard = ({id,fecha, medico, clinica, precio, tratamiento}
                 <div className="tratamientoContenido">{tratamiento}</div>
 
             </div>
-            <div className="precio">
-                <div className="precioTitulo">PRECIO</div>
-                <div className="precioContenido">{precio}</div>
+
+            <div className="medico">
+                <div className="medicoTitulo">Usuario</div>
+                <div className="medicoContenido"> {user}</div>
 
             </div>
+            
 
             <div className="botonesOpcionCita">
 
@@ -55,4 +44,5 @@ export const AppointmentCard = ({id,fecha, medico, clinica, precio, tratamiento}
 
         </div>
     )
+
 }

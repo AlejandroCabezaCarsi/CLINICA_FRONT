@@ -60,7 +60,7 @@ export const ProfileNavbar = () => {
                         <>
                             <Nav.Link onClick={()=>navigate("/CreateAppointment")}>CREAR CITA</Nav.Link>
                             <Nav.Link onClick={()=>navigate}>VER TODAS LAS CITAS PASADAS PRESENTES Y FUTURAS</Nav.Link>
-                            <Nav.Link onClick={()=>navigate}>VER TODAS LOS USUARIOS</Nav.Link>
+                            <Nav.Link onClick={()=>navigate}>VER TODOS LOS USUARIOS</Nav.Link>
                             
                         </>
                 : <></>

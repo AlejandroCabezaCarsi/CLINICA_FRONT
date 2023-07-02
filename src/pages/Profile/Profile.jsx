@@ -24,6 +24,9 @@ export const Profile = () => {
     const [userDataBackend, setUserDataBackend] = useState("")
     const [criteria,setCriteria] = useState("")
 
+    const[criteriaMedic, setCriteriaMedic] = useState("")
+    const[userDataBackendMedic, setUserDataBackendMedic] = useState("")
+
     
 
     const dataUser = useSelector(userData)
@@ -43,17 +46,20 @@ export const Profile = () => {
 
     const inputHandler = (e) => {
         setCriteria(e.target.value);
-      };
+    };
+    const inputHandlerMedic = (e) => {
+        setCriteriaMedic(e.target.value);
+    };
 
 switch (dataUser.dataUser.role) {
         case 4:
         
             
             useEffect(()=> {
-    
+
             if(criteria !== ""){
                 const bring = setTimeout(()=>{
-                    
+
                 getAppointmentByDate(token, criteria)
 
             .then(
@@ -82,6 +88,7 @@ switch (dataUser.dataUser.role) {
             
             
             },[criteria]);
+            
             break;
 
 
@@ -91,18 +98,20 @@ switch (dataUser.dataUser.role) {
 
         
 
-            if(criteria !== ""){
+            if(criteriaMedic !== ""){
+
+                console.log("AQUI ENTRO")
     
                 const bring = setTimeout(()=>{
 
-                getAppointmentByDate( dataUser.credentials.token, criteria)
+                getAppointmentByDate( token, criteriaMedic)
     
                 .then(
                     resultados => {
 
                         console.log(resultados)
     
-                        setUserDataBackend(resultados.data.data)
+                        setUserDataBackendMedic(resultados.data.data)
 
                     }
                 )
@@ -112,16 +121,14 @@ switch (dataUser.dataUser.role) {
     
                 return () => clearTimeout(bring);
     
-            }else if (criteria === ""){
+            }else if (criteriaMedic === ""){
 
-                
-
-                getAllAppointmentsByMedicId(token, criteria)
+                getAllAppointmentsByMedicId(token)
     
                 .then(
                     resultados => {
 
-                        setUserDataBackend(resultados.data.data)
+                        setUserDataBackendMedic(resultados.data.data)
 
                         console.log(resultados)
 
@@ -134,7 +141,7 @@ switch (dataUser.dataUser.role) {
                 }
     
     
-            },[criteria]);
+            },[criteriaMedic]);
 
         break;
         
@@ -161,7 +168,20 @@ switch (dataUser.dataUser.role) {
 
                     <div className="buttonRow d-flex align-items-center justify-content-center m-3">
 
-                    <input type="date" value={criteria} onChange={inputHandler}/> 
+                    {
+                        dataUser.dataUser.role === 4 
+
+                        ?(
+                            <input type="date" value={criteria} onChange={inputHandler}/>
+                        )
+
+                        :(
+                            <input type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
+                        )
+
+                        
+                    }
+                     
 
                     <input type="text"/> 
 
@@ -177,9 +197,7 @@ switch (dataUser.dataUser.role) {
                                         userDataBackend.map(
                                             
                                             dataAppointment=> {
-                                                
-                                                
-                                                if (dataUser.dataUser.role === 4) {
+
                                                     return(
                                                     <div key={dataAppointment.id}>
                                                         <AppointmentCard
@@ -192,27 +210,45 @@ switch (dataUser.dataUser.role) {
                                                         />
                                                     </div>
                                                 )
-                                                }else{
-
-                                                    return(
-                                                        <div key={dataAppointment.id}>
-                                                            <AppointmentCardMedic
-                                                                fecha={dataAppointment.date}
-                                                                clinica={dataAppointment.clinic?.address}
-                                                                tratamiento={dataAppointment.treatment?.name}
-                                                                user={dataAppointment.user?.name}
-                                                                id={dataAppointment.id}
-                                                            />
-                                                        </div>
-                                                    )
-                                                }
                                                 
+
+                                                    
                                             }
                                         )
                                     }
                                 </div>
                             ) :(<></>)
+                        }
 
+                        {
+                            userDataBackendMedic?.length > 0 
+
+                            ?(
+                                <div className="appointmentCardSpace">
+                                    {
+                                        userDataBackendMedic.map(
+                                            dataAppointment=> {
+
+                                                console.log(userDataBackendMedic)
+
+                                                console.log(dataAppointment)
+
+                                                return(
+                                                    <div key={dataAppointment.id}>
+                                                        <AppointmentCardMedic
+                                                            fecha={dataAppointment.date}
+                                                            clinica={dataAppointment.clinic?.address}
+                                                            tratamiento={dataAppointment.treatment?.name}
+                                                            user={dataAppointment.user?.name}
+                                                            id={dataAppointment.id}
+                                                        />
+                                                    </div>
+                                                )
+                                            }
+                                        )
+                                    }
+                                </div>
+                            ) : (<></>)
                         }
 
 

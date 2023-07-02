@@ -31,13 +31,16 @@ export const UpdateAppointment = () => {
 
     return(
 
-        <div className="UpdateAppointmentDesign">
+        <div className="UpdateAppointmentDesign d-flex justify-content-center align-items-center">
 
-        <input type="date" value={dateValue} onChange={handleDateChange}></input>
-        <input type="time" value={timeValue} onChange={handleTimeChange}></input>
-        <input type="text" placeholder="Algún comentario adicional?" maxLength={50} value={commentsValue} onChange={handleCommentsChange} ></input>
+        
+        <div className="inputsUpdateForm d-flex flex-column justify-content-center align-items-center">
 
-        <div onClick={()=>updateAppointment(bearerToken, 
+        <input className="styleSelect" type="date" value={dateValue} onChange={handleDateChange}></input>
+        <input className="styleSelect" type="time" value={timeValue} onChange={handleTimeChange}></input>
+        <input className="styleSelect" type="text" placeholder="Algún comentario adicional?" maxLength={50} value={commentsValue} onChange={handleCommentsChange} ></input>
+
+        <div className=" buttonUpdateAppointment d-flex align-items-center justify-content-center" onClick={()=>updateAppointment(bearerToken, 
             {
 
                 date: dateValue,
@@ -45,7 +48,10 @@ export const UpdateAppointment = () => {
                 comments: commentsValue,
                 id: id
             }
-        )} >MODIFICAR CITA</div>
+        )} >MODIFICAR </div>
+
+        </div>
+
 
 
         </div>

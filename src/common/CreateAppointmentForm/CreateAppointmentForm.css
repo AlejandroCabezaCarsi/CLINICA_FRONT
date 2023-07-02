@@ -62,4 +62,5 @@
     transform: scale(1.1);
     box-shadow: #6ACDE5 0 0 0.5em 0.1em ;
     cursor: pointer;
+    font-weight: bolder;
 }

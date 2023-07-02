@@ -1,6 +1,29 @@
 .UpdateAppointmentDesign{
     width: 100vw;
     min-height: 90.4vh ;
-    background-color: aquamarine;
+    background-color: #C1E9FC;
 }
 
+.inputsUpdateForm{
+    border: solid black 0.2em;
+    border-radius: 1em;
+    height: 15em;
+    width: 30em;
+}
+
+.buttonUpdateAppointment{
+    width: 8em;
+    height: 2em;
+    margin: 0.5em;
+    background-color: #6ACDE5;
+    border-radius: 2em;
+    transition: 0.5s;
+}
+.buttonUpdateAppointment:hover{
+    transition: 0.5s;
+    color: #102444;
+    transform: scale(1.1);
+    box-shadow: #6ACDE5 0 0 0.5em 0.1em ;
+    cursor: pointer;
+    font-weight: bolder;
+}

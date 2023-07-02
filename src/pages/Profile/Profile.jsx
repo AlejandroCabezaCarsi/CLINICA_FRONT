@@ -52,6 +52,7 @@ export const Profile = () => {
     };
 
 switch (dataUser.dataUser.role) {
+        
         case 4:
         
             
@@ -172,18 +173,18 @@ switch (dataUser.dataUser.role) {
                         dataUser.dataUser.role === 4 
 
                         ?(
-                            <input type="date" value={criteria} onChange={inputHandler}/>
+                            <input className="styleSelect text-center" type="date" value={criteria} onChange={inputHandler}/>
                         )
 
                         :(
-                            <input type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
+                            <input className="styleSelect text-center" type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
                         )
 
                         
                     }
                      
 
-                    <input type="text"/> 
+
 
                     </div>
                     <div className="contentRow">
@@ -198,12 +199,15 @@ switch (dataUser.dataUser.role) {
                                             
                                             dataAppointment=> {
 
+                                                    const address = dataAppointment.clinic?.address;
+                                                    const cutAddress = address.split(" ").slice(0, 3).join(" ");
+
                                                     return(
                                                     <div key={dataAppointment.id}>
                                                         <AppointmentCard
                                                             fecha={dataAppointment.date}
                                                             medico={ dataAppointment.medic?.user.name}
-                                                            clinica={dataAppointment.clinic?.address}
+                                                            clinica = {cutAddress}
                                                             tratamiento={dataAppointment.treatment?.name}
                                                             precio={dataAppointment.price}
                                                             id={dataAppointment.id}

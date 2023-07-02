@@ -1,97 +1,110 @@
 .appointmentCardDesign{
-
     width: auto ;
-    height: auto;
-    background-color: black;
+    height: 3.5em;
+    border: solid black 0.2em;
+    border-radius: 1em;
+}
 
+.fontWeight{
+    font-weight: bolder;
+}
+
+.widthTitles{
+    width: 6.5em;
 }
 
 .fecha{
-    width: 6em;
+    width: 7em;
     height: 5em;
-    background-color: red;
 }
 
 .fechaTitulo{
-    width: 6em;
+    width: 7em;
     height: 1.5em;
-    background-color: white;
 }
 .medico{
-    width: 6em;
+    width: 7em;
     height: 5em;
-    background-color: blue;
 }
 .medicoTitulo{
-    width: 6em;
+    width: 7em;
     height: 1.5em;
-    background-color: white;
 }
 .clinica{
-    width: 6em;
+    width: 9em;
     height: 5em;
-    background-color: yellow;
 }
 .clinicaTitulo{
-    width: 6em;
+    width: 9em;
     height: 1.5em;
-    background-color: white;
 }
 
 
 .precio{
     width: 6em;
     height: 5em;
-    background-color: green;
 }
 .precioTitulo{
     width: 6em;
     height: 1.5em;
-    background-color: white;
 }
 
 .botonesOpcionCita{
     width: 6em;
-    height: 5em;
-    background-color: orange;
 }
 
 .editaCita{
-    background-color: rgb(208, 255, 0);
-    width: 6em;
-    height: 1.666em;
+    width: 2.5em;
+    height: 2.5em;
+    border: solid black 0.1em;
+
+    border-radius: 50%;
+    background-image: url(../../assets/lapiz.png);
+    background-size: contain;
     cursor: pointer;
 }
 
 .cancelaCita{
-    background-color: red;
-    width: 6em;
-    height: 1.666em;
+    width: 2.5em;
+    height: 2.5em;
+    border: solid black 0.1em;
+
+    border-radius: 50%;
+    background-image: url(../../assets/cross.png);
+    background-size: contain;
     cursor: pointer;
 }
 
 .verDetalleCita{
-    background-color: rgb(0, 255, 34);
     width: 6em;
     height: 1.666em;
     cursor: pointer;
 }
 .tratamiento{
-    width: 6em;
+    width: 9em;
     height: 5em;
-    background-color: green;
 }
 .tratamientoTitulo{
-    width: 6em;
+    width: 10em;
     height: 1.5em;
-    background-color: white;
     
 }
 
 .tratamientoOpcionCita{
     width: 6em;
     height: 5em;
-    background-color: rgb(0, 255, 42);
     word-wrap: break-word;
 }
+
+.formatAppointmentCardAttributes{
+    width: 4em;
+    height: 2em;
+}
+
+.centerCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 

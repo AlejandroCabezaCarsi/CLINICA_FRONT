@@ -15,41 +15,40 @@ export const AppointmentCard = ({id,fecha, medico, clinica, precio, tratamiento}
 
         
 
-        <div className="appointmentCardDesign d-flex text-center">
+        <div className="appointmentCardDesign d-flex text-center m-4">
 
             <div className="fecha">
 
-                <div className="fechaTitulo">FECHA</div>
-                <div className="fechaContenido">{fecha}</div>
+                <div className="fechaTitulo centerCenter fontWeight">FECHA</div>
+                <div className="fechaContenido centerCenter ">{fecha}</div>
             </div>
 
-            <div className="medico">
-                <div className="medicoTitulo">MEDICO</div>
-                <div className="medicoContenido">Dr. {medico}</div>
+            <div className="medico ">
+                <div className="medicoTitulo centerCenter fontWeight">MEDICO</div>
+                <div className="medicoContenido centerCenter">Dr. {medico}</div>
 
             </div>
 
-            <div className="clinica">
-                <div className="clinicaTitulo">CLÍNICA</div>
-                <div className="clinicaContenido">{clinica}</div>
+            <div className="clinica ">
+                <div className="clinicaTitulo centerCenter fontWeight">CLÍNICA</div>
+                <div className="clinicaContenido centerCenter">{clinica}</div>
             </div>
 
             <div className="tratamiento">
-                <div className="tratamientoTitulo">TRATAMIENTO</div>
-                <div className="tratamientoContenido">{tratamiento}</div>
+                <div className="tratamientoTitulo centerCenter fontWeight">TRATAMIENTO</div>
+                <div className="tratamientoContenido centerCenter">{tratamiento}</div>
 
             </div>
             <div className="precio">
-                <div className="precioTitulo">PRECIO</div>
-                <div className="precioContenido">{precio}</div>
+                <div className="precioTitulo centerCenter fontWeight">PRECIO</div>
+                <div className="precioContenido centerCenter">{precio}</div>
 
             </div>
 
-            <div className="botonesOpcionCita">
+            <div className="botonesOpcionCita d-flex flex-row justify-content-around align-items-center">
 
-                <div className="editaCita" onClick={()=>navigate(`/UpdateAppointment/${id}`)}>Editar</div>
-                <div className="cancelaCita" >Cancela</div>
-                <div className="verDetalleCita">Detalle</div>
+                <div className="editaCita" onClick={()=>navigate(`/UpdateAppointment/${id}`)}></div>
+                <div className="cancelaCita" ></div>
 
             </div>
 

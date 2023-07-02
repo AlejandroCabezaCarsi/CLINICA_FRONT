@@ -6,89 +6,89 @@
 
 }
 
-.fecha{
+.fechaM{
     width: 6em;
     height: 5em;
     background-color: red;
 }
 
-.fechaTitulo{
+.fechaTituloM{
     width: 6em;
     height: 1.5em;
     background-color: white;
 }
-.medico{
+.medicoM{
     width: 6em;
     height: 5em;
     background-color: blue;
 }
-.medicoTitulo{
+.medicoTituloM{
     width: 6em;
     height: 1.5em;
     background-color: white;
 }
-.clinica{
+.clinicaM{
     width: 6em;
     height: 5em;
     background-color: yellow;
 }
-.clinicaTitulo{
+.clinicaTituloM{
     width: 6em;
     height: 1.5em;
     background-color: white;
 }
 
 
-.precio{
+.precioM{
     width: 6em;
     height: 5em;
     background-color: green;
 }
-.precioTitulo{
+.precioTituloM{
     width: 6em;
     height: 1.5em;
     background-color: white;
 }
 
-.botonesOpcionCita{
+.botonesOpcionCitaM{
     width: 6em;
     height: 5em;
     background-color: orange;
 }
 
-.editaCita{
+.editaCitaM{
     background-color: rgb(208, 255, 0);
     width: 6em;
     height: 1.666em;
     cursor: pointer;
 }
 
-.cancelaCita{
+.cancelaCitaM{
     background-color: red;
     width: 6em;
     height: 1.666em;
     cursor: pointer;
 }
 
-.verDetalleCita{
+.verDetalleCitaM{
     background-color: rgb(0, 255, 34);
     width: 6em;
     height: 1.666em;
     cursor: pointer;
 }
-.tratamiento{
+.tratamientoM{
     width: 6em;
     height: 5em;
     background-color: green;
 }
-.tratamientoTitulo{
+.tratamientoTituloM{
     width: 6em;
     height: 1.5em;
     background-color: white;
     
 }
 
-.tratamientoOpcionCita{
+.tratamientoOpcionCitaM{
     width: 6em;
     height: 5em;
     background-color: rgb(0, 255, 42);

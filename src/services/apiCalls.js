@@ -105,16 +105,30 @@ export const updateAppointment = async (data,appointmentUpdateData) => {
 }
 
 export const getAppointmentByDate = async (data, appointmentDate) => {
+  const raiz = "http://localhost:3000";
+  console.log(appointmentDate);
+  return await axios.post(`${raiz}/appointment/getAppointmentsByDate`, { date: appointmentDate }, {
+    headers: {
+      Authorization: data,
+    },
+  });
+};
 
-    const raiz = "http://localhost:3000"
+// export const getAppointmentByDate = async (data, appointmentDate) => {
 
-    return await axios.get(`${raiz}/appointment/getAppointmentsByDate`,
-    appointmentDate,
-    {
-        headers: {
-            Authorization: data
-        },
-    })
+//     const raiz = "http://localhost:3000"
 
-}
+//     console.log(appointmentDate)
+
+//     return await axios.get(`${raiz}/appointment/getAppointmentsByDate`,{
+//         headers: {
+//           Authorization: data,
+//         },
+//         params: {
+//           date: appointmentDate,
+
+//         },
+//       });
+
+// }
 

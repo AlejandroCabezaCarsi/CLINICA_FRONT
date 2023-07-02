@@ -22,9 +22,9 @@ export const Profile = () => {
 
     // const reduxToken = useSelector(credentials)
 
-    // const token = `Bearer ${dataUser.credentials.token}`
+    const token = `Bearer ${dataUser.credentials.token}`
 
-    const bearerToken = `Bearer ${dataUser.credentials.token}`
+    // const bearerToken = `Bearer ${dataUser.credentials.token}`
 
     const navigate = useNavigate()
 
@@ -64,8 +64,8 @@ export const Profile = () => {
 
 
             const bring = setTimeout(()=>{
-                getAppointmentByDate( bearerToken , criteria)
 
+                getAppointmentByDate( token , criteria)
 
             .then(
                 resultados => {
@@ -85,7 +85,7 @@ export const Profile = () => {
 
         }else if (criteria === ""){
 
-            getAllAppointmentsByUserId(bearerToken)
+            getAllAppointmentsByUserId(token)
 
             .then(
                 resultados => {
@@ -137,7 +137,7 @@ export const Profile = () => {
                                                         fecha={dataAppointment.date}
                                                         medico={ dataAppointment.medic?.user.name}
                                                         clinica={dataAppointment.clinic?.address}
-                                                        tratamiento={dataAppointment.treatment.name}
+                                                        tratamiento={dataAppointment.treatment?.name}
                                                         precio={dataAppointment.price}
                                                         id={dataAppointment.id}
                                                     />

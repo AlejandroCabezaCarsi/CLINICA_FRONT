@@ -5,7 +5,7 @@
 .loginBackgroundDesign{
     height: 91vh;
     width: auto;
-    background-color: red;
+    background-color:#C1E9FC ;
 }
 
 
@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     background-color: #C1E9FC;
-    width: 25%;
+    
 }
 
 .botonLogin{

@@ -76,7 +76,7 @@ export const CreateAppointmentForm = () => {
       <Container fluid className="d-flex justify-content-center align-items-center">
 
         <Row className="d-flex align-items-center justify-content-center">
-          <Col xs={8} className="d-flex flex-column justify-content-center align-items-center">
+          <Col xs={8} sm={8} md={10} lg={10} className="d-flex flex-column justify-content-center align-items-center">
             <select  className="styleSelect text-center" value={medicSelected} onChange={handleChangeMedic}>
               <option value="">Selecciona un dentista</option>
               {optionsMedics.map((option) => (

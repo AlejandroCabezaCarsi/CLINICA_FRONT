@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Login.css";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { InputText } from "../../common/InputText/InputText";
 import jwt_decode from "jwt-decode"
 import { checkError } from "../../services/useful";
@@ -130,61 +130,73 @@ export const Login = () => {
     <div className="loginBackgroundDesign d-flex justify-content-center align-items-center">
 
     {welcome !== "" ? (
-      <div> {welcome} </div>
+      <div className="welcomeMessage"> {welcome} </div>
     ) :(
       <div className="form loginDesign">
-        <Row>
-            <Col className="mt-3">
-            E-mail
-            </Col>
-        </Row>
-        <Row>
-            <Col lg={12}>
-            <InputText 
-                type={"email"}
-                design={
-                  credentialsError.emailError === ""
-                    ? "normalInput"
-                    : "normalInput errorInput"
-                }
-                placeholder={"  Email..."}
-                name={"email"}
-                functionHandler={inputHandler}
-                onBlurFunction={inputCheck}
-            />
-            <div className="errorText">{credentialsError.emailError}</div>
-            </Col>
-        </Row>
-        <Row>
-            <Col lg={12} className="mt-4">
-            Contraseña
-            </Col>
-        </Row>
-        <Row>
 
-            <Col lg={12}>
-            <InputText 
-                type={"password"}
-                design={
-                  credentialsError.passwordError === ""
-                    ? "normalInput"
-                    : "normalInput errorInput"
-                }
-                placeholder={"  Contraseña..."}
-                name={"password"}
-                functionHandler={inputHandler}
-                onBlurFunction={inputCheck}
-            />
-            <div className="errorText">{credentialsError.passwordError}</div>
+        <Container>
+
+          <Row>
+
+            <Col xs={12} sm={12} md={12} lg={12} className="d-flex flex-column justify-content-center align-items-center">
+            
+              <div className="mt-3">
+              E-mail
+              </div>
+
+
+
+              <InputText 
+                  type={"email"}
+                  design={
+                    credentialsError.emailError === ""
+                      ? "normalInput"
+                      : "normalInput errorInput"
+                  }
+                  placeholder={"  Email..."}
+                  name={"email"}
+                  functionHandler={inputHandler}
+                  onBlurFunction={inputCheck}
+              />
+              <div className="errorText">{credentialsError.emailError}</div>
+                
+                
+
+              <div className="mt-4">
+              Contraseña
+              </div>
+
+
+
+                
+              <InputText 
+                  type={"password"}
+                  design={
+                    credentialsError.passwordError === ""
+                      ? "normalInput"
+                      : "normalInput errorInput"
+                  }
+                  placeholder={"  Contraseña..."}
+                  name={"password"}
+                  functionHandler={inputHandler}
+                  onBlurFunction={inputCheck}
+              />
+              <div className="errorText">{credentialsError.passwordError}</div>
+                
+                
+
+
+                <div onClick={() => logMe()} className="botonLogin">
+                  Login me!
+                </div>
             </Col>
-        </Row>
-        <Row>
-          <Col>
-          <div onClick={() => logMe()} className="botonLogin">
-            Login me!
-          </div>
-          </Col>
-        </Row>
+
+          </Row>
+
+        </Container>
+        
+
+
         
       </div>
     )}

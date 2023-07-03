@@ -1,14 +1,16 @@
 .UpdateAppointmentDesign{
-    width: 100vw;
+    max-width: 100vw;
     min-height: 90.4vh ;
     background-color: #C1E9FC;
+    overflow-x: auto;
 }
 
 .inputsUpdateForm{
     border: solid black 0.2em;
     border-radius: 1em;
-    height: 15em;
-    width: 30em;
+    height: 20em;
+    width: 18em;
+    overflow-x: hidden;
 }
 
 .buttonUpdateAppointment{

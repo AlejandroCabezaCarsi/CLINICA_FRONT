@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { updateAppointment } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../Login/userSlice";
+import { Col, Container, Row } from "react-bootstrap";
+
 
 export const UpdateAppointment = () => {
 
@@ -31,30 +33,75 @@ export const UpdateAppointment = () => {
 
     return(
 
-        <div className="UpdateAppointmentDesign d-flex justify-content-center align-items-center">
+        // <div className="UpdateAppointmentDesign d-flex justify-content-center align-items-center">
 
         
-        <div className="inputsUpdateForm d-flex flex-column justify-content-center align-items-center">
+        // <div className="inputsUpdateForm d-flex flex-column justify-content-center align-items-center">
 
-        <input className="styleSelect" type="date" value={dateValue} onChange={handleDateChange}></input>
-        <input className="styleSelect" type="time" value={timeValue} onChange={handleTimeChange}></input>
-        <input className="styleSelect" type="text" placeholder="Algún comentario adicional?" maxLength={50} value={commentsValue} onChange={handleCommentsChange} ></input>
+        // <input className="styleSelect" type="date" value={dateValue} onChange={handleDateChange}></input>
+        // <input className="styleSelect" type="time" value={timeValue} onChange={handleTimeChange}></input>
+        // <input className="styleSelect" type="text" placeholder="Algún comentario adicional?" maxLength={50} value={commentsValue} onChange={handleCommentsChange} ></input>
 
-        <div className=" buttonUpdateAppointment d-flex align-items-center justify-content-center" onClick={()=>updateAppointment(bearerToken, 
-            {
+        // <div className=" buttonUpdateAppointment d-flex align-items-center justify-content-center" onClick={()=>updateAppointment(bearerToken, 
+        //     {
 
-                date: dateValue,
-                time: timeValue,
-                comments: commentsValue,
-                id: id
-            }
-        )} >MODIFICAR </div>
+        //         date: dateValue,
+        //         time: timeValue,
+        //         comments: commentsValue,
+        //         id: id
+        //     }
+        // )} >MODIFICAR </div>
 
+        // </div>
+
+
+
+        // </div>
+
+        
+      // <div className="UpdateAppointmentDesign d-flex ">
+      //   <Container fluid className=" d-flex justify-content-center align-items-center">
+      //      <Row className="inputsUpdateForm d-flex justify-content-center align-items-center">
+
+      //       <Col sm={6} md={6} lg={10} className="d-flex flex-column align-items-center justify-content-center p-4" >
+      //         <input className="styleSelect text-center" type="date" value={dateValue} onChange={handleDateChange}></input>
+      //         <input className="styleSelect text-center" type="time" value={timeValue} onChange={handleTimeChange}></input>
+      //         <input className="styleSelect text-center" type="text" placeholder="Algún comentario adicional?" maxLength={50} value={commentsValue} onChange={handleCommentsChange}></input>
+      //         <div className="buttonUpdateAppointment d-flex align-items-center justify-content-center" onClick={() => updateAppointment(bearerToken, {
+      //             date: dateValue,
+      //             time: timeValue,
+      //             comments: commentsValue,
+      //             id: id
+      //           })}>
+      //           MODIFICAR
+      //         </div>
+      //       </Col>
+      //     </Row>
+      //   </Container>
+      // </div>
+
+
+<div className="UpdateAppointmentDesign d-flex">
+  <Container fluid className="d-flex justify-content-center align-items-center">
+    <Row className="inputsUpdateForm d-flex justify-content-center align-items-center ">
+      <Col xs={12} sm={12} md={12} lg={12} className="d-flex flex-column align-items-center justify-content-center">
+        <input className="styleSelect text-center" type="date" value={dateValue} onChange={handleDateChange}></input>
+        <input className="styleSelect text-center" type="time" value={timeValue} onChange={handleTimeChange}></input>
+        <input className="styleSelect text-center" type="text" placeholder="Algún comentario adicional?" maxLength={50} value={commentsValue} onChange={handleCommentsChange}></input>
+        <div className="buttonUpdateAppointment d-flex align-items-center justify-content-center" onClick={() => updateAppointment(bearerToken, {
+          date: dateValue,
+          time: timeValue,
+          comments: commentsValue,
+          id: id
+        })}>
+          MODIFICAR
         </div>
+      </Col>
+    </Row>
+  </Container>
+</div>
 
 
-
-        </div>
     )
 
 }

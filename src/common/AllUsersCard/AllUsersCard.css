@@ -2,7 +2,18 @@
 
     width: 25em;
     height: 14em;
-    background-color: red;
+    border: solid black 0.2em;
     border-radius: 2em;
+    overflow-wrap: break-word;
 
+}
+
+.fontWeight{
+    font-weight: bold;
+}
+
+
+
+.emailAContent{
+    overflow-wrap: break-word;
 }

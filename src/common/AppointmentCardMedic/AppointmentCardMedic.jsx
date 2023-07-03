@@ -27,7 +27,7 @@ export const AppointmentCardMedic = ({id,fecha, user, clinica, precio, tratamien
 
             <Col  sm={5} md={2} lg={3} className="tratamientoM centerCenter ">
                 <div className="tratamientoTituloM centerCenter fontWeight">TRATAMIENTO</div>
-                <div className="tratamientoContenidoM centerCenter">{tratamiento}</div>
+                <div className="tratamientoContenidoM text-center">{tratamiento}</div>
 
             </Col>
 
@@ -38,7 +38,7 @@ export const AppointmentCardMedic = ({id,fecha, user, clinica, precio, tratamien
             </Col>
             
 
-            <Col sm={12}  className="botonesOpcionCitaM d-flex flex-row justify-content-around align-items-center mb-2">
+            <Col sm={12}  className="botonesOpcionCitaM d-flex flex-row justify-content-around align-items-center mt- mb-2">
 
                 <div className="editaCita" onClick={()=>navigate(`/UpdateAppointment/${id}`)}></div>
                 <div className="cancelaCita" ></div>

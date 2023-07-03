@@ -16,7 +16,7 @@ export const AppointmentCard = ({id,fecha, medico, clinica, precio, tratamiento}
 
 
         <Container fluid>
-      <Row className="appointmentCardDesign m-4 ">
+      <Row className="appointmentCardDesign m-4 " onClick={()=>navigate(`/DetailAppointment/${id}`)}>
         <Col sm={5} md={2} className="fecha centerCenter">
           <div className="fechaTitulo centerCenter fontWeight">FECHA</div>
           <div className="fechaContenido centerCenter">{fecha}</div>

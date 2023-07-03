@@ -164,6 +164,18 @@ export const getAllUsers = async (data) => {
 }
 
 
+export const getOneAppointmentById = async (data,id) =>{
+
+    const raiz = "http://localhost:3000";
+
+    return await axios.post(`${raiz}/appointment/getAppointmentById`,{id:id},{
+        headers: {
+            Authorization: data,
+          },
+      });
+}
+
+
 
 // export const getAppointmentByDate = async (data, appointmentDate) => {
 

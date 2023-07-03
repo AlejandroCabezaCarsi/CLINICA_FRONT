@@ -1,0 +1,57 @@
+.DetailAppointmentDesign{
+
+    max-width: 100vw;
+    min-height: 94.4vh;
+    background-color: #C1E9FC ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+
+}
+
+.detailAppointmentCard{
+
+    width: 40em;
+    height: 40em;
+
+
+
+}
+
+.clinicInfo{
+    width: 35em;
+    height: auto;
+    
+    border: solid black 0.1em;
+    border-radius: 0.5em;
+    
+}
+
+.medicInfo{
+
+    width: 35em;
+    height: auto;
+    
+    border: solid black 0.1em;
+    border-radius: 0.5em;
+
+
+}
+
+.treatmentInfo{
+
+    width: 35em;
+    height: auto;
+    border: solid black 0.1em;
+    border-radius: 0.5em;
+
+}
+
+.textWeight{
+    font-weight: bolder;
+}
+
+.marginRight{
+    margin-right: 2em;
+}

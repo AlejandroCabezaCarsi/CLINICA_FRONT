@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../Login/userSlice";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-import { getAllAppointmentsByMedicId, getAllAppointmentsByUserId, getAppointmentByDate, getMedicByUserId} from "../../services/apiCalls";
+import { getAllAppointmentsByMedicId, getAllAppointmentsByUserId, getAppointmentByDate, getAppointmentByDateUser, getMedicByUserId} from "../../services/apiCalls";
 import axios from "axios";
 import { Changeview } from "../../common/ChangeView/ChangeView";
 import { ProfileNavbar } from "../../common/ProfileNavbar/ProfileNavbar";
@@ -61,7 +61,7 @@ switch (dataUser.dataUser.role) {
             if(criteria !== ""){
                 const bring = setTimeout(()=>{
 
-                getAppointmentByDate(token, criteria)
+                getAppointmentByDateUser(token, criteria)
 
             .then(
                 resultados => {

@@ -114,6 +114,18 @@ export const getAppointmentByDate = async (data, appointmentDate) => {
   });
 };
 
+export const getAppointmentByDateUser = async (data,appointmentDate) => {
+
+    const raiz = "http://localhost:3000";
+    
+    return await axios.post(`${raiz}/appointment/getAppointmentsByDateUser`, { date: appointmentDate}, {
+        headers: {
+          Authorization: data,
+        },
+      });
+
+}
+
 
 export const getMedicByUserId = async (data,userId) => {
   const raiz = "http://localhost:3000";

@@ -177,13 +177,13 @@ switch (dataUser.dataUser.role) {
                             dataUser.dataUser.role === 4 
 
                             ?(
-                                <Col xs={8} sm={8} md={8}>
+                                <Col xs={8} sm={8} md={12} lg={12}>
                                     <input className="styleSelect text-center" type="date" value={criteria} onChange={inputHandler}/>
                                 </Col>
                             )
 
                             :(
-                                <Col xs={8} sm={8} md={8} lg={5}>                               
+                                <Col xs={8} sm={8} md={12} lg={12}>                               
                                     <input className="styleSelect text-center" type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
                                 </Col>
                             )

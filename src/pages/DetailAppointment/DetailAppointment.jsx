@@ -46,7 +46,7 @@ export const DetailAppointment = () => {
             <Container fluid className="detailAppointmentCard  d-flex flex-column justify-content-center align-items-center">
 
                 <Row className="d-flex justify-content-center align-items-center">
-                    <Col xs={7} className="d-flex justify-content-center"><div className="clinicInfo d-flex flex-column"><b>DETALLE DE LA CLINICA</b>
+                    <Col xs={7} lg={12} className="d-flex justify-content-center"><div className="clinicInfo d-flex flex-column"><b>DETALLE DE LA CLINICA</b>
 
                         <Row className="d-flex flex-column">
                             <Col><div className="clinicAddress d-flex flex-row justify-content-around">Localizacion
@@ -70,7 +70,7 @@ export const DetailAppointment = () => {
 
                         </div>
                     </Col>
-                    <Col xs={7}  className="d-flex justify-content-center"><div className="medicInfo d-flex flex-column"><b>DETALLE DEL MEDICO</b>
+                    <Col xs={7} lg={12}  className="d-flex justify-content-center"><div className="medicInfo d-flex flex-column"><b>DETALLE DEL MEDICO</b>
 
                         <Row className="d-flex flex-column">
                             <Col><div className="medicSpeciality d-flex flex-row justify-content-around">Especialidad
@@ -102,7 +102,7 @@ export const DetailAppointment = () => {
                 </Row>
 
                 <Row className="d-flex justify-content-center align-items-center">
-                    <Col xs={7}  className="d-flex justify-content-center">
+                    <Col xs={7} lg={12} className="d-flex justify-content-center">
                     <div className="treatmentInfo d-flex flex-column justify-content-around"> <b>DETALLE DEL TRATAMIENTO</b>
 
                         <Row className="d-flex flex-column justify-content-start align-items-start">

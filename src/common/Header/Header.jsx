@@ -60,7 +60,7 @@ export const Header = () => {
                 ?<div className="d-flex flex-row align-items-center justify-contents-between">
 
                   <div className="p-2 text-dark userProfileButton d-flex justify-content-around align-items-center">
-                    <div className="fotoUser"></div>{dataUser.dataUser.name}</div> 
+                    <div className="fotoUser" onClick={()=> navigate("/Profile")}></div><div onClick={()=>{navigate("/Profile")}}>{dataUser.dataUser.name}</div></div> 
 
                     <div className="botonLogout" onClick={()=>{dispatch(logout())}}> 
                     

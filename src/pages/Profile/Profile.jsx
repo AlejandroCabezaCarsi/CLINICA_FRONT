@@ -171,19 +171,19 @@ switch (dataUser.dataUser.role) {
 
                 <div className="appoitnmentCardSpaceDesign d-flex flex-column">
                     <Row>              
-                        <div className="buttonRow d-flex align-items-center justify-content-center m-3">
+                        <div className="buttonRow d-flex align-items-center justify-content-center ">
 
                         {
                             dataUser.dataUser.role === 4 
 
                             ?(
-                                <Col sm={10} md={4}>
+                                <Col xs={8} sm={8} md={8}>
                                     <input className="styleSelect text-center" type="date" value={criteria} onChange={inputHandler}/>
                                 </Col>
                             )
 
                             :(
-                                <Col sm={10} md={4}>                               
+                                <Col xs={8} sm={8} md={8}>                               
                                     <input className="styleSelect text-center" type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
                                 </Col>
                             )

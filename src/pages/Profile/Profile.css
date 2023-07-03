@@ -24,3 +24,7 @@
     background-color: blue;
     border-radius: 2em;
 }
+
+.hidden{
+    overflow-x: hidden;
+}

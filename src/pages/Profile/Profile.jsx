@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
-import { Col, Container, Row } from "react-bootstrap";
 import { UserProfileCard } from "../../common/UserProfileCard/USerProfileCard";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -11,6 +10,7 @@ import axios from "axios";
 import { Changeview } from "../../common/ChangeView/ChangeView";
 import { ProfileNavbar } from "../../common/ProfileNavbar/ProfileNavbar";
 import { AppointmentCardMedic } from "../../common/AppointmentCardMedic/AppointmentCardMedic";
+import { Form, InputGroup, Container, Row, Col } from "react-bootstrap";
 
 export const Profile = () => {
 
@@ -153,6 +153,10 @@ switch (dataUser.dataUser.role) {
    
 
     return(
+
+    <Container fluid className="m-0 p-0 hidden">
+
+    
         <div className="profileDesign d-flex flex-column  align-items-center">
 
             <div className="NavbarRow">
@@ -166,27 +170,28 @@ switch (dataUser.dataUser.role) {
             <div className="profileBody">
 
                 <div className="appoitnmentCardSpaceDesign d-flex flex-column">
+                    <Row>              
+                        <div className="buttonRow d-flex align-items-center justify-content-center m-3">
 
-                    <div className="buttonRow d-flex align-items-center justify-content-center m-3">
+                        {
+                            dataUser.dataUser.role === 4 
 
-                    {
-                        dataUser.dataUser.role === 4 
+                            ?(
+                                <Col sm={10} md={4}>
+                                    <input className="styleSelect text-center" type="date" value={criteria} onChange={inputHandler}/>
+                                </Col>
+                            )
 
-                        ?(
-                            <input className="styleSelect text-center" type="date" value={criteria} onChange={inputHandler}/>
-                        )
+                            :(
+                                <Col sm={10} md={4}>                               
+                                    <input className="styleSelect text-center" type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
+                                </Col>
+                            )
 
-                        :(
-                            <input className="styleSelect text-center" type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
-                        )
-
-                        
-                    }
-                     
-
-
-
-                    </div>
+                            
+                        }
+                        </div>
+                    </Row>
                     <div className="contentRow">
                         {   
                             
@@ -203,16 +208,23 @@ switch (dataUser.dataUser.role) {
                                                     const cutAddress = address.split(" ").slice(0, 3).join(" ");
 
                                                     return(
-                                                    <div key={dataAppointment.id}>
-                                                        <AppointmentCard
-                                                            fecha={dataAppointment.date}
-                                                            medico={ dataAppointment.medic?.user.name}
-                                                            clinica = {cutAddress}
-                                                            tratamiento={dataAppointment.treatment?.name}
-                                                            precio={dataAppointment.price}
-                                                            id={dataAppointment.id}
-                                                        />
-                                                    </div>
+                                                    <Container>
+                                                        <Row>
+                                                            <div key={dataAppointment.id}>
+                                                                <Col sm={12} md={10} lg={12}>
+                                                                    <AppointmentCard
+                                                                        fecha={dataAppointment.date}
+                                                                        medico={ dataAppointment.medic?.user.name}
+                                                                        clinica = {cutAddress}
+                                                                        tratamiento={dataAppointment.treatment?.name}
+                                                                        precio={dataAppointment.price}
+                                                                        id={dataAppointment.id}
+                                                                    />
+                                                                </Col>
+                                                            </div>
+                                                        </Row>
+                                                        
+                                                    </Container>
                                                 )
                                                 
 
@@ -238,15 +250,20 @@ switch (dataUser.dataUser.role) {
                                                 console.log(dataAppointment)
 
                                                 return(
-                                                    <div key={dataAppointment.id}>
-                                                        <AppointmentCardMedic
-                                                            fecha={dataAppointment.date}
-                                                            clinica={dataAppointment.clinic?.address}
-                                                            tratamiento={dataAppointment.treatment?.name}
-                                                            user={dataAppointment.user?.name}
-                                                            id={dataAppointment.id}
-                                                        />
-                                                    </div>
+                                                    <Row>
+                                                        <Col lg ={12} >
+                                                            <div key={dataAppointment.id}>
+                                                                <AppointmentCardMedic
+                                                                    fecha={dataAppointment.date}
+                                                                    clinica={dataAppointment.clinic?.address}
+                                                                    tratamiento={dataAppointment.treatment?.name}
+                                                                    user={dataAppointment.user?.name}
+                                                                    id={dataAppointment.id}
+                                                                />
+                                                            </div>
+                                                        </Col>
+                                                    </Row>
+                                                    
                                                 )
                                             }
                                         )
@@ -261,5 +278,10 @@ switch (dataUser.dataUser.role) {
             </div>
 
         </div>
+    </Container>
     )
+
+    
 }
+
+

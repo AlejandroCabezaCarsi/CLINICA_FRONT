@@ -1,8 +1,13 @@
 .appointmentCardDesign{
     width: auto ;
-    height: 3.5em;
+    height: auto;
     border: solid black 0.2em;
     border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 .fontWeight{
@@ -14,43 +19,43 @@
 }
 
 .fecha{
-    width: 7em;
-    height: 5em;
+    width: auto;
+    height: auto;
 }
 
 .fechaTitulo{
-    width: 7em;
-    height: 1.5em;
+    width: auto;
+    height: auto;
 }
 .medico{
-    width: 7em;
-    height: 5em;
+    width: auto;
+    height: auto;
 }
 .medicoTitulo{
-    width: 7em;
-    height: 1.5em;
+    width: auto;
+    height: auto;
 }
 .clinica{
-    width: 9em;
-    height: 5em;
+    width: auto;
+    height: auto;
 }
 .clinicaTitulo{
-    width: 9em;
-    height: 1.5em;
+    width: auto;
+    height: auto;
 }
-
 
 .precio{
-    width: 6em;
-    height: 5em;
+    width: auto;
+    height: auto;
 }
 .precioTitulo{
-    width: 6em;
-    height: 1.5em;
+    width: auto;
+    height: auto;
 }
 
 .botonesOpcionCita{
-    width: 6em;
+    width: auto;
+    height: auto;
 }
 
 .editaCita{
@@ -103,6 +108,7 @@
 
 .centerCenter{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

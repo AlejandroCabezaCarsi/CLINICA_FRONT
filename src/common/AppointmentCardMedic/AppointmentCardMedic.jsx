@@ -1,48 +1,53 @@
 import React from "react";
 import "./AppointmentCardMedic.css"
 import { useNavigate } from "react-router-dom";
+import { Container,Row,Col } from "react-bootstrap";
 
 
 export const AppointmentCardMedic = ({id,fecha, user, clinica, precio, tratamiento}) => {
 
     const navigate = useNavigate()
 
-    return( 
-        <div className="appointmentCardMedicDesign d-flex text-center">
+    return(
 
-            <div className="fecha">
+        <Container fluid>
 
-                <div className="fechaTitulo">FECHA</div>
-                <div className="fechaContenido">{fecha}</div>
-            </div>
+        <Row className="appointmentCardMedicDesign m-3">
 
-            <div className="clinica">
-                <div className="clinicaTitulo">CLÍNICA</div>
-                <div className="clinicaContenido">{clinica}</div>
-            </div>
+            <Col sm={5} md={2} lg={3} className="fechaM centerCenter">
 
-            <div className="tratamiento">
-                <div className="tratamientoTitulo">TRATAMIENTO</div>
-                <div className="tratamientoContenido">{tratamiento}</div>
+                <div className="fechaTituloM centerCenter fontWeight">FECHA</div>
+                <div className="fechaContenidoM centerCenter">{fecha}</div>
+            </Col>
 
-            </div>
+            <Col sm={5} md={2} lg={4} className="clinicaM centerCenter">
+                <div className="clinicaTituloM centerCenter fontWeight">CLÍNICA</div>
+                <div className="clinicaContenidoM centerCenter">{clinica}</div>
+            </Col>
 
-            <div className="medico">
-                <div className="medicoTitulo">Usuario</div>
-                <div className="medicoContenido"> {user}</div>
+            <Col  sm={5} md={2} lg={3} className="tratamientoM centerCenter ">
+                <div className="tratamientoTituloM centerCenter fontWeight">TRATAMIENTO</div>
+                <div className="tratamientoContenidoM centerCenter">{tratamiento}</div>
 
-            </div>
+            </Col>
+
+            <Col sm={5} md={2} lg={2} className="medicoM centerCenter">
+                <div className="medicoTituloM centerCenter fontWeight">USUARIO</div>
+                <div className="medicoContenidoM centerCenter"> {user}</div>
+
+            </Col>
             
 
-            <div className="botonesOpcionCita">
+            <Col sm={12}  className="botonesOpcionCitaM d-flex flex-row justify-content-around align-items-center mb-2">
 
-                <div className="editaCita" onClick={()=>navigate(`/UpdateAppointment/${id}`)}>Editar</div>
-                <div className="cancelaCita" >Cancela</div>
-                <div className="verDetalleCita">Detalle</div>
+                <div className="editaCita" onClick={()=>navigate(`/UpdateAppointment/${id}`)}></div>
+                <div className="cancelaCita" ></div>
 
-            </div>
 
-        </div>
+            </Col>
+
+        </Row>
+    </Container>
     )
 
 }

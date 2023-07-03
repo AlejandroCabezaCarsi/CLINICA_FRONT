@@ -183,7 +183,7 @@ switch (dataUser.dataUser.role) {
                             )
 
                             :(
-                                <Col xs={8} sm={8} md={8}>                               
+                                <Col xs={8} sm={8} md={8} lg={5}>                               
                                     <input className="styleSelect text-center" type="date" value={criteriaMedic} onChange={inputHandlerMedic}/>
                                 </Col>
                             )
@@ -245,6 +245,10 @@ switch (dataUser.dataUser.role) {
                                         userDataBackendMedic.map(
                                             dataAppointment=> {
 
+                                                const address = dataAppointment.clinic?.address;
+                                                    const cutAddress = address.split(" ").slice(0, 3).join(" ");
+
+
                                                 console.log(userDataBackendMedic)
 
                                                 console.log(dataAppointment)
@@ -255,7 +259,7 @@ switch (dataUser.dataUser.role) {
                                                             <div key={dataAppointment.id}>
                                                                 <AppointmentCardMedic
                                                                     fecha={dataAppointment.date}
-                                                                    clinica={dataAppointment.clinic?.address}
+                                                                    clinica={cutAddress}
                                                                     tratamiento={dataAppointment.treatment?.name}
                                                                     user={dataAppointment.user?.name}
                                                                     id={dataAppointment.id}

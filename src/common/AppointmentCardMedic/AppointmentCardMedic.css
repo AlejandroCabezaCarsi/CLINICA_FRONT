@@ -2,95 +2,111 @@
 
     width: auto ;
     height: auto;
-    background-color: black;
+    border: solid black 0.2em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
+}
+.fontWeight{
+    font-weight: bolder;
 }
 
 .fechaM{
-    width: 6em;
-    height: 5em;
-    background-color: red;
+    width: auto;
+    height: auto;
+
 }
 
 .fechaTituloM{
-    width: 6em;
-    height: 1.5em;
-    background-color: white;
+    width: auto;
+    height: auto;
 }
 .medicoM{
-    width: 6em;
-    height: 5em;
-    background-color: blue;
+    width: auto;
+    height: auto;
 }
 .medicoTituloM{
-    width: 6em;
-    height: 1.5em;
-    background-color: white;
+    width: auto;
+    height: auto;
 }
 .clinicaM{
-    width: 6em;
-    height: 5em;
-    background-color: yellow;
+    width: auto;
+    height: auto;
 }
 .clinicaTituloM{
-    width: 6em;
-    height: 1.5em;
-    background-color: white;
+    width: auto;
+    height: auto;
 }
 
 
 .precioM{
-    width: 6em;
-    height: 5em;
-    background-color: green;
+    width:auto;
+    height: auto;
 }
 .precioTituloM{
-    width: 6em;
-    height: 1.5em;
-    background-color: white;
+    width: auto;
+    height: auto;
 }
 
 .botonesOpcionCitaM{
-    width: 6em;
-    height: 5em;
-    background-color: orange;
+    width: auto;
+    height: auto;
 }
 
-.editaCitaM{
-    background-color: rgb(208, 255, 0);
-    width: 6em;
-    height: 1.666em;
+.editaCita{
+    width: 2.5em;
+    height: 2.5em;
+    border: solid black 0.1em;
+
+    border-radius: 50%;
+    background-image: url(../../assets/lapiz.png);
+    background-size: contain;
     cursor: pointer;
 }
 
-.cancelaCitaM{
-    background-color: red;
-    width: 6em;
-    height: 1.666em;
+.cancelaCita{
+    width: 2.5em;
+    height: 2.5em;
+    border: solid black 0.1em;
+
+    border-radius: 50%;
+    background-image: url(../../assets/cross.png);
+    background-size: contain;
     cursor: pointer;
 }
 
 .verDetalleCitaM{
-    background-color: rgb(0, 255, 34);
-    width: 6em;
+    width: auto;
     height: 1.666em;
     cursor: pointer;
 }
 .tratamientoM{
-    width: 6em;
+    width: 9em;
     height: 5em;
-    background-color: green;
 }
 .tratamientoTituloM{
-    width: 6em;
+    width: 10em;
     height: 1.5em;
-    background-color: white;
     
 }
 
 .tratamientoOpcionCitaM{
     width: 6em;
     height: 5em;
-    background-color: rgb(0, 255, 42);
     word-wrap: break-word;
+}
+
+.formatAppointmentCardAttributes{
+    width: 4em;
+    height: 2em;
+}
+
+.centerCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -176,22 +176,15 @@ export const getOneAppointmentById = async (data,id) =>{
 }
 
 
+export const getAllAppoitnments = async (data) => {
 
-// export const getAppointmentByDate = async (data, appointmentDate) => {
+    const raiz = "http://localhost:3000";
 
-//     const raiz = "http://localhost:3000"
+    return await axios.get(`${raiz}/appointment/getAllAppointments`,{
+        headers: {
+            Authorization: data,
+          },
+      });
 
-//     console.log(appointmentDate)
-
-//     return await axios.get(`${raiz}/appointment/getAppointmentsByDate`,{
-//         headers: {
-//           Authorization: data,
-//         },
-//         params: {
-//           date: appointmentDate,
-
-//         },
-//       });
-
-// }
+}
 

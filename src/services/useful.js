@@ -1,36 +1,26 @@
 export const checkError = (name, value) => {
+  switch (name) {
+    case "email":
+    case "e-mail":
+    case "correo":
+      if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
+        return "El formato de e-mail es incorrecto";
+      }
 
+      return "";
 
-    switch(name){
+    case "password":
+    case "contraseña":
+      // if(value.length < 8){
+      //     return "El password debe de tener 8 caracteres minimo";
 
-        case "email":
-        case "e-mail":
-        case "correo":
+      // }
+      return "";
 
-            if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)){
-                return "El formato de e-mail es incorrecto";
-            }
+    case "name":
+      break;
 
-                return "";
-
-        case "password":
-        case "contraseña":
-
-            // if(value.length < 8){
-            //     return "El password debe de tener 8 caracteres minimo";
-
-            // }
-                return "";
-
-
-        case "name":
-
-
-        break;
-
-        default:
-            console.log("Unknown format");
-    }
-
-
-}
+    default:
+      console.log("Unknown format");
+  }
+};

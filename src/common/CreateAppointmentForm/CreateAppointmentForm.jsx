@@ -73,11 +73,23 @@ export const CreateAppointmentForm = () => {
 
   return (
     <div className="CreateAppointmentFormDesign m-3">
-      <Container fluid className="d-flex justify-content-center align-items-center">
-
+      <Container
+        fluid
+        className="d-flex justify-content-center align-items-center"
+      >
         <Row className="d-flex align-items-center justify-content-center">
-          <Col xs={8} sm={8} md={10} lg={10} className="d-flex flex-column justify-content-center align-items-center">
-            <select  className="styleSelect text-center" value={medicSelected} onChange={handleChangeMedic}>
+          <Col
+            xs={8}
+            sm={8}
+            md={10}
+            lg={10}
+            className="d-flex flex-column justify-content-center align-items-center"
+          >
+            <select
+              className="styleSelect text-center"
+              value={medicSelected}
+              onChange={handleChangeMedic}
+            >
               <option value="">Selecciona un dentista</option>
               {optionsMedics.map((option) => (
                 <option key={option.id} value={option.medic.id}>
@@ -85,9 +97,12 @@ export const CreateAppointmentForm = () => {
                 </option>
               ))}
             </select>
-              
-              
-            <select className="styleSelect text-center" value={treatmentSelected} onChange={handleChangeTreatment}>
+
+            <select
+              className="styleSelect text-center"
+              value={treatmentSelected}
+              onChange={handleChangeTreatment}
+            >
               <option value="">Selecciona un tratamiento</option>
               {optionsTreatments.map((option) => (
                 <option key={option.id} value={option.id}>
@@ -95,10 +110,12 @@ export const CreateAppointmentForm = () => {
                 </option>
               ))}
             </select>
-              
-              
-              
-            <select className="styleSelect text-center" value={clinicSelected} onChange={handleChangeClinic}>
+
+            <select
+              className="styleSelect text-center"
+              value={clinicSelected}
+              onChange={handleChangeClinic}
+            >
               <option value="">Selecciona una clínica</option>
               {optionsClinics.map((option) => (
                 <option key={option.id} value={option.id}>
@@ -106,11 +123,21 @@ export const CreateAppointmentForm = () => {
                 </option>
               ))}
             </select>
-              
-              
-            <input className="styleSelect text-center"type="date" value={dateValue} onChange={handleDateChange}></input>
-            <input className="styleSelect text-center"type="time" value={timeValue} onChange={handleTimeChange}></input>
-            <input className="styleSelect text-center"
+
+            <input
+              className="styleSelect text-center"
+              type="date"
+              value={dateValue}
+              onChange={handleDateChange}
+            ></input>
+            <input
+              className="styleSelect text-center"
+              type="time"
+              value={timeValue}
+              onChange={handleTimeChange}
+            ></input>
+            <input
+              className="styleSelect text-center"
               type="text"
               placeholder="Algún comentario adicional?"
               maxLength={50}
@@ -118,7 +145,8 @@ export const CreateAppointmentForm = () => {
               onChange={handleCommentsChange}
             ></input>
 
-            <div className="createAppointmentButton d-flex justify-content-center align-items-center"
+            <div
+              className="createAppointmentButton d-flex justify-content-center align-items-center"
               onClick={() =>
                 createAppointment(bearerToken, {
                   medicId: medicSelected,
@@ -134,8 +162,6 @@ export const CreateAppointmentForm = () => {
             </div>
           </Col>
         </Row>
-
-
       </Container>
     </div>
   );

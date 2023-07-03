@@ -8,6 +8,7 @@ import {
 } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/Login/userSlice";
+import { Container, Row, Col } from "react-bootstrap";
 
 export const CreateAppointmentForm = () => {
   const dataUser = useSelector(userData);
@@ -71,62 +72,71 @@ export const CreateAppointmentForm = () => {
   };
 
   return (
-    <div className="CreateAppointmentFormDesign">
-      <select  className="styleSelect" value={medicSelected} onChange={handleChangeMedic}>
-        <option value="">Selecciona un dentista</option>
-        {optionsMedics.map((option) => (
-          <option key={option.id} value={option.medic.id}>
-            Dr. {option.lastname} ({option.medic.speciality})
-          </option>
-        ))}
-      </select>
+    <div className="CreateAppointmentFormDesign m-3">
+      <Container fluid className="d-flex justify-content-center align-items-center">
+
+        <Row className="d-flex align-items-center justify-content-center">
+          <Col xs={8} className="d-flex flex-column justify-content-center align-items-center">
+            <select  className="styleSelect text-center" value={medicSelected} onChange={handleChangeMedic}>
+              <option value="">Selecciona un dentista</option>
+              {optionsMedics.map((option) => (
+                <option key={option.id} value={option.medic.id}>
+                  Dr. {option.lastname} ({option.medic.speciality})
+                </option>
+              ))}
+            </select>
+              
+              
+            <select className="styleSelect text-center" value={treatmentSelected} onChange={handleChangeTreatment}>
+              <option value="">Selecciona un tratamiento</option>
+              {optionsTreatments.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+              
+              
+              
+            <select className="styleSelect text-center" value={clinicSelected} onChange={handleChangeClinic}>
+              <option value="">Selecciona una clínica</option>
+              {optionsClinics.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {option.city}
+                </option>
+              ))}
+            </select>
+              
+              
+            <input className="styleSelect text-center"type="date" value={dateValue} onChange={handleDateChange}></input>
+            <input className="styleSelect text-center"type="time" value={timeValue} onChange={handleTimeChange}></input>
+            <input className="styleSelect text-center"
+              type="text"
+              placeholder="Algún comentario adicional?"
+              maxLength={50}
+              value={commentsValue}
+              onChange={handleCommentsChange}
+            ></input>
+
+            <div className="createAppointmentButton d-flex justify-content-center align-items-center"
+              onClick={() =>
+                createAppointment(bearerToken, {
+                  medicId: medicSelected,
+                  treatmentId: treatmentSelected,
+                  clinicId: clinicSelected,
+                  date: dateValue,
+                  time: timeValue,
+                  comments: commentsValue,
+                })
+              }
+            >
+              CREAR CITA
+            </div>
+          </Col>
+        </Row>
 
 
-      <select className="styleSelect" value={treatmentSelected} onChange={handleChangeTreatment}>
-        <option value="">Selecciona un tratamiento</option>
-        {optionsTreatments.map((option) => (
-          <option key={option.id} value={option.id}>
-            {option.name}
-          </option>
-        ))}
-      </select>
-
-      
-
-      <select className="styleSelect" value={clinicSelected} onChange={handleChangeClinic}>
-        <option value="">Selecciona una clínica</option>
-        {optionsClinics.map((option) => (
-          <option key={option.id} value={option.id}>
-            {option.city}
-          </option>
-        ))}
-      </select>
-
-
-      <input className="styleSelect"type="date" value={dateValue} onChange={handleDateChange}></input>
-      <input className="styleSelect"type="time" value={timeValue} onChange={handleTimeChange}></input>
-      <input className="styleSelect"
-        type="text"
-        placeholder="Algún comentario adicional?"
-        maxLength={50}
-        value={commentsValue}
-        onChange={handleCommentsChange}
-      ></input>
-
-      <div className="createAppointmentButton d-flex justify-content-center align-items-center"
-        onClick={() =>
-          createAppointment(bearerToken, {
-            medicId: medicSelected,
-            treatmentId: treatmentSelected,
-            clinicId: clinicSelected,
-            date: dateValue,
-            time: timeValue,
-            comments: commentsValue,
-          })
-        }
-      >
-        CREAR CITA
-      </div>
+      </Container>
     </div>
   );
 };
